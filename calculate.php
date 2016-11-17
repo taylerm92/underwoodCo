@@ -6,19 +6,19 @@
   $lines2 = file_get_contents("files/logs.txt");
   $arrayLogs = preg_split('/[ \n]/', $lines2); //reads logs file and stores values into array of logs
 
-  echo "Log: ".$arrayLogs[0]." ".$arrayLogs[1]." ".$arrayLogs[2]."<br>";
-
-  $count = count($arrayLumber) - 1;
-  echo "Scrap: ".$arrayLumber[$count]."<br>";
-
-  $output1 = $arrayLumber[0]*$arrayLumber[1]*$arrayLumber[2]; //calculates area of first board
-  $output1 = $arrayLumber[3]/$output1;
-
-  $output2 = $arrayLumber[4]*$arrayLumber[5]*$arrayLumber[6]; //calculates area of second board
-  $output2 = $arrayLumber[7]/$output2;
-
-  $output3 = $arrayLumber[8]*$arrayLumber[9]*$arrayLumber[10]; //calculates area of third board
-  $output3 = $arrayLumber[11]/$output3;
+//  echo "Log: ".$arrayLogs[0]." ".$arrayLogs[1]." ".$arrayLogs[2]."<br>";
+//
+//  $count = count($arrayLumber) - 1;
+//  echo "Scrap: ".$arrayLumber[$count]."<br>";
+//
+//  $output1 = $arrayLumber[0]*$arrayLumber[1]*$arrayLumber[2]; //calculates area of first board
+//  $output1 = $arrayLumber[3]/$output1;
+//
+//  $output2 = $arrayLumber[4]*$arrayLumber[5]*$arrayLumber[6]; //calculates area of second board
+//  $output2 = $arrayLumber[7]/$output2;
+//
+//  $output3 = $arrayLumber[8]*$arrayLumber[9]*$arrayLumber[10]; //calculates area of third board
+//  $output3 = $arrayLumber[11]/$output3;
 
 
 
