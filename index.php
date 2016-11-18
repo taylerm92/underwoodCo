@@ -12,6 +12,7 @@
 	</head>
 	<body>
 		<div class="container">
+			<div id="loader" class="loader" style="display:none;"></div>
 			<form action="upload.php">
 				<button type="submit" class="btn btn-default">Upload Log File</button>
 				<button type="submit" class="btn btn-default">Upload Board Value File</button>
@@ -26,7 +27,7 @@
 					return true;
 				})
 		 </script>
-			<div id="loader" class="loader" style="display:none;"></div>
+
 
 		</div>
 	<!-- Scripts that shouldn't effect page load go right before the closing body tag -->

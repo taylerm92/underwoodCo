@@ -35,6 +35,10 @@ html, body {
     width: 200px;
     height: 200px;
     animation: spin 5s linear infinite;
+		z-index: 99 !important;
+		position: absolute;
+		top: 30%;
+		left: 43%;
 }
 
 @keyframes spin {

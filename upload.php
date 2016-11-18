@@ -65,7 +65,7 @@ if (isset( $_POST['hey']))
 
 		if(empty($errors) == true)
 		{
-      if(file_exists("/xampp/htdocs/lumberGeni/files/".$file_name))
+      if(file_exists("/xampp/htdocs/underwoodCo/files/".$file_name))
       {
         ?>
           <script>
@@ -77,7 +77,7 @@ if (isset( $_POST['hey']))
       }
       else
       {
-        move_uploaded_file($file_tmp, "/xampp/htdocs/lumberGeni/files/".$file_name);
+        move_uploaded_file($file_tmp, "/xampp/htdocs/underwoodCo/files/".$file_name);
         header('Location: index.php');
       }
 		}
