@@ -6,28 +6,16 @@
   $boardCounter2 = [0,0,0];
   $boardCounter3 = [0,0,0];
   $boardCounter4 = [0,0,0];
-  // $boardCounter1[0]=0;
-  // $boardCounter1[1]=0;
-  // $boardCounter1[2]=0;
-  // $boardCounter2[0]=0;
-  // $boardCounter2[1]=0;
-  // $boardCounter2[2]=0;
-  // $boardCounter3[0]=0;
-  // $boardCounter3[1]=0;
-  // $boardCounter3[2]=0;
-  // $boardCounter4[0]=0;
-  // $boardCounter4[1]=0;
-  // $boardCounter4[2]=0;
 
   $ogLogArea = $arrayLogs[0]*$arrayLogs[1];
 
   echo "logarea = ";
   echo $ogLogArea."<br>";
 
-  optimal_cut1($logHeight, $logWidth, $arrayLumber, $boardCounter1);
-  optimal_cut2($logHeight, $logWidth, $arrayLumber, $boardCounter2);
-  optimal_cut3($logHeight, $logWidth, $arrayLumber, $boardCounter3);
-  optimal_cut4($logHeight, $logWidth, $arrayLumber, $boardCounter4);
+  optimal_cut1($logHeight, $logWidth, $optimumValue, $boardCounter1);
+  optimal_cut2($logHeight, $logWidth, $optimumValue, $boardCounter2);
+  optimal_cut3($logHeight, $logWidth, $optimumValue, $boardCounter3);
+  optimal_cut4($logHeight, $logWidth, $optimumValue, $boardCounter4);
 
 foreach($boardCounter1 as $board)
   {
@@ -53,7 +41,7 @@ foreach($boardCounter1 as $board)
 
 
   function optimal_cut1($logHeight, $logWidth, $lumber, &$boardCounter1){
-    $numLumber = count($lumber) - 3; //for the for loop to only loop as many boards we have
+    $numLumber = count($lumber); //for the for loop to only loop as many boards we have
 
     for($i=0, $j=0; $i < $numLumber; $i+=4, $j++){
       set_time_limit(30);
@@ -134,7 +122,7 @@ foreach($boardCounter1 as $board)
     }
   }
   function optimal_cut2($logHeight, $logWidth, $lumber, &$boardCounter2){
-    $numLumber = count($lumber) - 3; //for the for loop to only loop as many boards we have
+    $numLumber = count($lumber); //for the for loop to only loop as many boards we have
 
     for($i=0, $j=0; $i < $numLumber; $i+=4, $j++){
       set_time_limit(30);
@@ -216,7 +204,7 @@ foreach($boardCounter1 as $board)
   }
   //this function flips the lumber first then is same as optimal cut3
   function optimal_cut3($logHeight, $logWidth, $lumber, &$boardCounter3){
-    $numLumber = count($lumber) - 3; //for the for loop to only loop as many boards we have
+    $numLumber = count($lumber); //for the for loop to only loop as many boards we have
 
     for($i=0, $j=0; $i < $numLumber; $i+=4, $j++){
       set_time_limit(30);
@@ -298,7 +286,7 @@ foreach($boardCounter1 as $board)
   }
   function optimal_cut4($logHeight, $logWidth, $lumber, &$boardCounter4)
   {
-    $numLumber = count($lumber) - 3; //for the for loop to only loop as many boards we have
+    $numLumber = count($lumber); //for the for loop to only loop as many boards we have
 
     for($i=0, $j=0; $i < $numLumber; $i+=4, $j++){
       set_time_limit(30);
