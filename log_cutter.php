@@ -2,19 +2,22 @@
 
   $logHeight = $arrayLogs[0];
   $logWidth = $arrayLogs[1];
-
-  $boardCounter1[0]=0;
-  $boardCounter1[1]=0;
-  $boardCounter1[2]=0;
-  $boardCounter2[0]=0;
-  $boardCounter2[1]=0;
-  $boardCounter2[2]=0;
-  $boardCounter3[0]=0;
-  $boardCounter3[1]=0;
-  $boardCounter3[2]=0;
-  $boardCounter4[0]=0;
-  $boardCounter4[1]=0;
-  $boardCounter4[2]=0;
+  $boardCounter1 = [0,0,0];
+  $boardCounter2 = [0,0,0];
+  $boardCounter3 = [0,0,0];
+  $boardCounter4 = [0,0,0];
+  // $boardCounter1[0]=0;
+  // $boardCounter1[1]=0;
+  // $boardCounter1[2]=0;
+  // $boardCounter2[0]=0;
+  // $boardCounter2[1]=0;
+  // $boardCounter2[2]=0;
+  // $boardCounter3[0]=0;
+  // $boardCounter3[1]=0;
+  // $boardCounter3[2]=0;
+  // $boardCounter4[0]=0;
+  // $boardCounter4[1]=0;
+  // $boardCounter4[2]=0;
 
   $ogLogArea = $arrayLogs[0]*$arrayLogs[1];
 
