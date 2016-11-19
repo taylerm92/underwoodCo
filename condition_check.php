@@ -1,5 +1,5 @@
 <?php
-  $numLumber = count($arrayLumber) - 3; //grabs only the measurements we need
+  $numLumber = count($arrayLumber)-3; //grabs only the measurements we need
 
   for($i = 0; $i < 12; $i++)
   {
@@ -15,7 +15,7 @@
     $volume[$index+3] = $arrayLumber[$index+3]/($arrayLumber[$index]*$arrayLumber[$index+1]*$arrayLumber[$index+2]); //stores value by volume of each board
   }
 
-  if($numLumber = 12)
+  if($numLumber > 11)
   {
     $output1 = $volume[3];
     $output2 = $volume[7];
@@ -111,7 +111,7 @@
       $optimumValue[11] = $volume[3]; //board1
     }
   }
-  elseif($numLumber = 8)
+  elseif($numLumber > 7)
   {
     $output1 = $volume[3];
     $output2 = $volume[7];
@@ -125,6 +125,10 @@
       $optimumValue[5] = $volume[5];
       $optimumValue[6] = $volume[6];
       $optimumValue[7] = $volume[7];//board2
+      $optimumValue[8] = $volume[4];
+      $optimumValue[9] = $volume[5];
+      $optimumValue[10] = $volume[6];
+      $optimumValue[11] = $volume[7]; //board3
     }
     else
     {
@@ -136,6 +140,10 @@
       $optimumValue[5] = $volume[1];
       $optimumValue[6] = $volume[2];
       $optimumValue[7] = $volume[3]; //board1
+      $optimumValue[8] = $volume[0];
+      $optimumValue[9] = $volume[1];
+      $optimumValue[10] = $volume[2];
+      $optimumValue[11] = $volume[3]; //board3
 
     }
   }
@@ -145,6 +153,14 @@
     $optimumValue[1] = $volume[1];
     $optimumValue[2] = $volume[2];
     $optimumValue[3] = $volume[3]; //board1
+    $optimumValue[4] = $volume[0];
+    $optimumValue[5] = $volume[1];
+    $optimumValue[6] = $volume[2];
+    $optimumValue[7] = $volume[3]; //board1
+    $optimumValue[8] = $volume[0];
+    $optimumValue[9] = $volume[1];
+    $optimumValue[10] = $volume[2];
+    $optimumValue[11] = $volume[3]; //board3
   }
 
 ?>

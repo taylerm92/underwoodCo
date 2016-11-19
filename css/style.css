@@ -5,13 +5,19 @@
 
 html, body {
 	min-height: 100%;
+	height: 100vh;
 	color: black;
+	background-color: rgb(25,25,25);
+	background-image: url('/underwoodCo/images/background.jpg');
+	background-position: center;
+	background-repeat: no-repeat;
 }
 
 .btn-file {
     position: relative;
     overflow: hidden;
 }
+
 .btn-file input[type=file] {
     position: absolute;
     top: 0;
@@ -28,17 +34,41 @@ html, body {
     display: block;
 }
 
+.homecontainer{
+	padding-top: 40px;
+	width: 550px;
+	margin: 0 auto;
+}
+
+.companyLogo{
+	margin-bottom: 20px;
+	margin-right: 15px;
+	text-align: center;
+}
+
+.btn{
+	width: 250px;
+	height: 100px;
+}
+
+.calculatebtn{
+	margin-top: 5px;
+	margin-bottom: 15px;
+	width: 505px;
+	height: 200px;
+}
+
 .loader {
 		background-image: url('/underwoodCo/images/Sawblade.png');
 		background-position: center;
-		background-repeat: no-repeat;;
+		background-repeat: no-repeat;
     width: 200px;
     height: 200px;
     animation: spin 5s linear infinite;
 		z-index: 99 !important;
 		position: absolute;
-		top: 30%;
-		left: 43%;
+		top: 35%;
+		left: 42.3%;
 }
 
 @keyframes spin {

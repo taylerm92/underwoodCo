@@ -11,14 +11,15 @@
 		<link rel="stylesheet" type="text/css" href="/underwoodCo/css/style.css">
 	</head>
 	<body>
-		<div class="container">
+		<div class="container homecontainer">
+			<div class="companyLogo"><img src="/underwoodCo/images/logo.png" width="400" height="248"/></div>
 			<div id="loader" class="loader" style="display:none;"></div>
 			<form action="upload.php">
 				<button type="submit" class="btn btn-default">Upload Log File</button>
 				<button type="submit" class="btn btn-default">Upload Board Value File</button>
 			</form>
 			<form id="calculate" action="calculate.php">
-				<button type="submit" class="btn btn-default">Calculate</button>
+				<button type="submit" class="btn btn-default calculatebtn">Calculate</button>
 			</form>
 
 			<script type="text/javascript">
