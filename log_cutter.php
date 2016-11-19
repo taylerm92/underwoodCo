@@ -1,42 +1,49 @@
 <?php
 
-  $logHeight = $arrayLogs[0];
-  $logWidth = $arrayLogs[1];
   $boardCounter1 = [0,0,0];
   $boardCounter2 = [0,0,0];
   $boardCounter3 = [0,0,0];
   $boardCounter4 = [0,0,0];
-
-  $ogLogArea = $arrayLogs[0]*$arrayLogs[1];
-
-  echo "logarea = ";
-  echo $ogLogArea."<br>";
-
-  optimal_cut1($logHeight, $logWidth, $optimumValue, $boardCounter1);
-  optimal_cut2($logHeight, $logWidth, $optimumValue, $boardCounter2);
-  optimal_cut3($logHeight, $logWidth, $optimumValue, $boardCounter3);
-  optimal_cut4($logHeight, $logWidth, $optimumValue, $boardCounter4);
-
-foreach($boardCounter1 as $board)
-  {
-    echo $board."<br>";
-  }
-  echo "<br>";
-  foreach($boardCounter2 as $board)
-  {
-    echo $board."<br>";
-  }
-  echo "<br>";
-  foreach($boardCounter3 as $board)
-  {
-    echo $board."<br>";
-  }
-  echo "<br>";
-  foreach($boardCounter4 as $board)
-  {
-    echo $board."<br>";
-  }
-  echo "<br>";
+  $totalLogVol = 0;
+    for($i = 0; $i < count($arrayLogs); $i+=3)
+    {
+        $logHeight = (int)$arrayLogs[$i];
+        $logWidth = (int)$arrayLogs[$i+1];
+        $logLength = (int)$arrayLogs[$i+2];
+        $lumberLength = (int)$optimumValue[2];
+        $totalLogVol += $logHeight*$logWidth*$logLength;
+        if($logLength >= $lumberLength)
+        {
+            optimal_cut1($logHeight, $logWidth, $optimumValue, $boardCounter1);
+            optimal_cut2($logHeight, $logWidth, $optimumValue, $boardCounter2);
+            optimal_cut3($logHeight, $logWidth, $optimumValue, $boardCounter3);
+            optimal_cut4($logHeight, $logWidth, $optimumValue, $boardCounter4);
+        }
+        else{
+            echo "Cannot cut log.<br>";
+        }
+    }
+    echo $totalLogVol."<br>";
+    foreach($boardCounter1 as $board)
+    {
+        echo $board."<br>";
+    }
+    echo "<br>";
+    foreach($boardCounter2 as $board)
+    {
+        echo $board."<br>";
+    }
+    echo "<br>";
+    foreach($boardCounter3 as $board)
+    {
+        echo $board."<br>";
+    }
+    echo "<br>";
+    foreach($boardCounter4 as $board)
+    {
+        echo $board."<br>";
+    }
+    echo "<br>";
 
 
 
@@ -83,9 +90,7 @@ foreach($boardCounter1 as $board)
           break;
         }
       }
-      $temp = $lumberHeight;
-      $lumberHeight = $lumberWidth;
-      $lumberWidth = $temp;
+        rotateLumber($lumberHeight, $lumberWidth);
 
       if (($logHeight >= $lumberHeight) && ($logWidth >= $lumberWidth)) {
         //log height = height of the lumber
@@ -164,9 +169,7 @@ foreach($boardCounter1 as $board)
           break;
         }
       }
-      $temp = $lumberHeight;
-      $lumberHeight = $lumberWidth;
-      $lumberWidth = $temp;
+        rotateLumber($lumberHeight, $lumberWidth);
 
       if (($logHeight >= $lumberHeight) && ($logWidth >= $lumberWidth)) {
         //log height = height of the lumber
@@ -246,9 +249,7 @@ foreach($boardCounter1 as $board)
           break;
         }
       }
-      $temp = $lumberHeight;
-      $lumberHeight = $lumberWidth;
-      $lumberWidth = $temp;
+        rotateLumber($lumberHeight, $lumberWidth);
 
       if (($logHeight >= $lumberHeight) && ($logWidth >= $lumberWidth)) {
         //log height = height of the lumber
@@ -328,9 +329,7 @@ foreach($boardCounter1 as $board)
           break;
         }
       }
-      $temp = $lumberHeight;
-      $lumberHeight = $lumberWidth;
-      $lumberWidth = $temp;
+        rotateLumber($lumberHeight, $lumberWidth);
 
       if (($logHeight >= $lumberHeight) && ($logWidth >= $lumberWidth)) {
         //log height = height of the lumber
@@ -366,4 +365,9 @@ foreach($boardCounter1 as $board)
       }
     }
   }
+function rotateLumber(&$lumberHeight, &$lumberWidth){
+    $temp = $lumberHeight;
+    $lumberHeight = $lumberWidth;
+    $lumberWidth = $temp;
+}
 ?>

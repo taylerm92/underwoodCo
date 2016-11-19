@@ -89,7 +89,7 @@
       $optimumValue[4] = $volume[0];
       $optimumValue[5] = $volume[1];
       $optimumValue[6] = $volume[2];
-      $optimumValue[7] = $volume[3]; //board1
+      $optimumValue[7] = $volume[3];//board1
       $optimumValue[8] = $volume[4];
       $optimumValue[9] = $volume[5];
       $optimumValue[10] = $volume[6];
@@ -108,7 +108,7 @@
       $optimumValue[8] = $volume[0];
       $optimumValue[9] = $volume[1];
       $optimumValue[10] = $volume[2];
-      $optimumValue[11] = $volume[3]; //board1
+      $optimumValue[11] = $volume[3];//board1
     }
   }
   elseif($numLumber > 7)
@@ -120,7 +120,7 @@
       $optimumValue[0] = $volume[0];
       $optimumValue[1] = $volume[1];
       $optimumValue[2] = $volume[2];
-      $optimumValue[3] = $volume[3]; //board1
+      $optimumValue[3] = $volume[3];//board1
       $optimumValue[4] = $volume[4];
       $optimumValue[5] = $volume[5];
       $optimumValue[6] = $volume[6];
@@ -128,22 +128,22 @@
       $optimumValue[8] = $volume[4];
       $optimumValue[9] = $volume[5];
       $optimumValue[10] = $volume[6];
-      $optimumValue[11] = $volume[7]; //board3
+      $optimumValue[11] = $volume[7];//board3
     }
     else
     {
       $optimumValue[0] = $volume[4];
       $optimumValue[1] = $volume[5];
       $optimumValue[2] = $volume[6];
-      $optimumValue[3] = $volume[7];//board2
+      $optimumValue[3] = $volume[7];//board1
       $optimumValue[4] = $volume[0];
       $optimumValue[5] = $volume[1];
       $optimumValue[6] = $volume[2];
-      $optimumValue[7] = $volume[3]; //board1
+      $optimumValue[7] = $volume[3]; //board2
       $optimumValue[8] = $volume[0];
       $optimumValue[9] = $volume[1];
       $optimumValue[10] = $volume[2];
-      $optimumValue[11] = $volume[3]; //board3
+      $optimumValue[11] = $volume[3]; //board1 (again)
 
     }
   }
@@ -156,11 +156,11 @@
     $optimumValue[4] = $volume[0];
     $optimumValue[5] = $volume[1];
     $optimumValue[6] = $volume[2];
-    $optimumValue[7] = $volume[3]; //board1
+    $optimumValue[7] = $volume[3]; //board1 (again)
     $optimumValue[8] = $volume[0];
     $optimumValue[9] = $volume[1];
     $optimumValue[10] = $volume[2];
-    $optimumValue[11] = $volume[3]; //board3
+    $optimumValue[11] = $volume[3]; //board1 (again)
   }
 
 ?>
