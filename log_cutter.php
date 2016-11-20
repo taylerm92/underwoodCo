@@ -5,21 +5,30 @@
   $boardCounter3 = [0,0,0];
   $boardCounter4 = [0,0,0];
   $totalLogVol = 0;
-    for($i = 0; $i < count($arrayLogs); $i+=3)
+  $multipleCuts = 0;
+  $totalExcessLog = 0;
+    for($i = 0; $i < count($arrayLogs)-1; $i+=3)
     {
         $logHeight = (int)$arrayLogs[$i];
         $logWidth = (int)$arrayLogs[$i+1];
         $logLength = (int)$arrayLogs[$i+2];
         $lumberLength = (int)$optimumValue[2];
         $totalLogVol += $logHeight*$logWidth*$logLength;
+        $multipleCuts = $logLength/$lumberLength;
+        $j = floor($multipleCuts);
+
         if($logLength >= $lumberLength)
         {
-            optimal_cut1($logHeight, $logWidth, $optimumValue, $boardCounter1);
-            optimal_cut2($logHeight, $logWidth, $optimumValue, $boardCounter2);
-            optimal_cut3($logHeight, $logWidth, $optimumValue, $boardCounter3);
-            optimal_cut4($logHeight, $logWidth, $optimumValue, $boardCounter4);
+            for($k=0; $k<$j; $k++)
+            {
+              optimal_cut1($logHeight, $logWidth, $optimumValue, $boardCounter1);
+              optimal_cut2($logHeight, $logWidth, $optimumValue, $boardCounter2);
+              optimal_cut3($logHeight, $logWidth, $optimumValue, $boardCounter3);
+              optimal_cut4($logHeight, $logWidth, $optimumValue, $boardCounter4);
+            }
         }
-        else{
+        else
+        {
             echo "Cannot cut log.<br>";
         }
     }
@@ -44,6 +53,7 @@
         echo $board."<br>";
     }
     echo "<br>";
+
 
 
 

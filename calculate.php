@@ -15,6 +15,7 @@
         echo $value."<br>";
       }
       include 'log_cutter.php'; //cut logs
+      include 'parse_results.php';
     }
     else
     {
