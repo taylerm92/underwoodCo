@@ -38,10 +38,10 @@
   $round3TotalVolume = $round3Board1Total+$round3Board2Total+$round3Board3Total; //total of all boards cubic inch to calculate scrap value
   $round3ScrapVolume = $totalLogVol - $round3TotalVolume; // total volume in cubic inch for scrap
 
-  $round3Board1Value = $round3Board1Total*$optimumValue[3]; //total value for all board1 cuts in round 2
-  $round3Board2Value = $round3Board2Total*$optimumValue[7]; //total value for all board2 cuts in round 2
-  $round3Board3Value = $round3Board3Total*$optimumValue[11]; //total value for all board3 cuts in round 2
-  $round3ScrapValue = $round3ScrapVolume*$arrayLumber[count($arrayLumber)-2]; //total value for scrap in round 2
+  $round3Board1Value = $round3Board1Total*$optimumValue[3]; //total value for all board1 cuts in round 3
+  $round3Board2Value = $round3Board2Total*$optimumValue[7]; //total value for all board2 cuts in round 3
+  $round3Board3Value = $round3Board3Total*$optimumValue[11]; //total value for all board3 cuts in round 3
+  $round3ScrapValue = $round3ScrapVolume*$arrayLumber[count($arrayLumber)-2]; //total value for scrap in round 3
   $round3TotalValue = $round3Board1Value+$round3Board2Value+$round3Board3Value+$round3ScrapValue; //total value of all log after being cut
 
   $round4Board1Total = $boardCounter4[0]*$board1CubicInch; //total cubic inch of all boards cut of one type
@@ -50,46 +50,519 @@
   $round4TotalVolume = $round4Board1Total+$round4Board2Total+$round4Board3Total; //total of all boards cubic inch to calculate scrap value
   $round4ScrapVolume = $totalLogVol - $round4TotalVolume; // total volume in cubic inch for scrap
 
-  $round4Board1Value = $round4Board1Total*$optimumValue[3]; //total value for all board1 cuts in round 2
-  $round4Board2Value = $round4Board2Total*$optimumValue[7]; //total value for all board2 cuts in round 2
-  $round4Board3Value = $round4Board3Total*$optimumValue[11]; //total value for all board3 cuts in round 2
-  $round4ScrapValue = $round4ScrapVolume*$arrayLumber[count($arrayLumber)-2]; //total value for scrap in round 2
+  $round4Board1Value = $round4Board1Total*$optimumValue[3]; //total value for all board1 cuts in round 4
+  $round4Board2Value = $round4Board2Total*$optimumValue[7]; //total value for all board2 cuts in round 4
+  $round4Board3Value = $round4Board3Total*$optimumValue[11]; //total value for all board3 cuts in round 4
+  $round4ScrapValue = $round4ScrapVolume*$arrayLumber[count($arrayLumber)-2]; //total value for scrap in round 4
   $round4TotalValue = $round4Board1Value+$round4Board2Value+$round4Board3Value+$round4ScrapValue; //total value of all log after being cut
 
   if($round1TotalValue >= $round2TotalValue && $round1TotalValue >= $round3TotalValue && $round1TotalValue >= $round4TotalValue)
   {
-    echo "Round 1 was best value. <br>";
-    echo "Total Value: $".$round1TotalValue."<br>";
-    echo $optimumValue[0]."x".$optimumValue[1]."x".$optimumValue[2]." Count: ".$boardCounter1[0]."<br>";
-    echo $optimumValue[4]."x".$optimumValue[5]."x".$optimumValue[6]." Count: ".$boardCounter1[1]."<br>";
-    echo $optimumValue[8]."x".$optimumValue[9]."x".$optimumValue[10]." Count: ".$boardCounter1[2]."<br>";
+    //lumber and scrap table start
+    echo "<table class = table>";
+      echo "<tr>";
+        echo "<th>";
+          echo "Quantity";
+        echo "</th>";
+        echo "<th>";
+          echo "Height";
+        echo "</th>";
+        echo "<th>";
+          echo "Width";
+        echo "</th>";
+        echo "<th>";
+          echo "Length";
+        echo "</th>";
+        echo "<th>";
+          echo "Value";
+        echo "</th>";
+      echo "</tr>";
+      //board 1 in the table
+      echo "<tr>";
+        echo "<td>";
+          echo $boardCounter1[0];
+        echo "</td>";
+        echo "<td>";
+          echo $optimumValue[0];
+        echo "</td>";
+        echo "<td>";
+          echo $optimumValue[1];
+        echo "</td>";
+        echo "<td>";
+          echo $optimumValue[2];
+        echo "</td>";
+        echo "<td>";
+          echo "$".$board1CubicInch*$optimumValue[3];
+        echo "</td>";
+      echo "</tr>";
+      //board 2 in the table
+      echo "<tr>";
+        echo "<td>";
+          echo $boardCounter1[1];
+        echo "</td>";
+        echo "<td>";
+          echo $optimumValue[4];
+        echo "</td>";
+        echo "<td>";
+          echo $optimumValue[5];
+        echo "</td>";
+        echo "<td>";
+          echo $optimumValue[6];
+        echo "</td>";
+        echo "<td>";
+          echo "$".$board2CubicInch*$optimumValue[7];
+        echo "</td>";
+      echo "</tr>";
+      //board 3 in the table
+      echo "<tr>";
+        echo "<td>";
+          echo $boardCounter1[2];
+        echo "</td>";
+        echo "<td>";
+          echo $optimumValue[8];
+        echo "</td>";
+        echo "<td>";
+          echo $optimumValue[9];
+        echo "</td>";
+        echo "<td>";
+          echo $optimumValue[10];
+        echo "</td>";
+        echo "<td>";
+          echo "$".$board3CubicInch*$optimumValue[11];
+        echo "</td>";
+      echo "</tr>";
+      //scrap case
+      echo "<tr>";
+        echo "<td colspan=\"5\">";
+          echo "Scrap: ".$round1ScrapVolume." cf";
+        echo "</td>";
+      echo "</tr>";
+    echo "</table>";
+    //value table start
+    echo "<table class = table>";
+      echo "<th>";
+        echo "";
+      echo "</th>";
+      echo "<th>";
+        echo "Value";
+      echo "</th>";
+      echo "<th>";
+        echo "% Value";
+      echo "</th>";
+      echo "<tr>";
+        echo "<td>";
+          echo "Lumber";
+        echo "</td>";
+        echo "<td>";
+          echo "$".($round1TotalValue - $round1ScrapValue);
+        echo "</td>";
+        echo "<td>";
+          echo ((($round1TotalValue - $round1ScrapValue)/$round1TotalValue)*100)."%";
+        echo "</td>";
+      echo "</tr>";
+      echo "<tr>";
+        echo "<td>";
+          echo "Scrap";
+        echo "</td>";
+        echo "<td>";
+          echo "$".$round1ScrapValue;
+        echo "</td>";
+        echo "<td>";
+          echo ((($round1ScrapValue)/$round1TotalValue)*100)."%";
+        echo "</td>";
+      echo "</tr>";
+      echo "<tr>";
+        echo "<td>";
+          echo "Total";
+        echo "</td>";
+        echo "<td>";
+          echo "$".$round1TotalValue;
+        echo "</td>";
+        echo "<td>";
+          echo "";
+        echo "</td>";
+      echo "</tr>";
+    echo "</table>";
   }
   elseif($round2TotalValue >= $round1TotalValue && $round2TotalValue >= $round3TotalValue && $round2TotalValue >= $round4TotalValue)
   {
-    echo "Round 2 was best value. <br>";
-    echo "Total Value: $".$round2TotalValue."<br>";
-    echo $optimumValue[0]."x".$optimumValue[1]."x".$optimumValue[2]." Count: ".$boardCounter2[0]."<br>";
-    echo $optimumValue[4]."x".$optimumValue[5]."x".$optimumValue[6]." Count: ".$boardCounter2[1]."<br>";
-    echo $optimumValue[8]."x".$optimumValue[9]."x".$optimumValue[10]." Count: ".$boardCounter2[2]."<br>";
+    echo "<table class = table>";
+      echo "<tr>";
+        echo "<th>";
+          echo "Quantity";
+        echo "</th>";
+        echo "<th>";
+          echo "Height";
+        echo "</th>";
+        echo "<th>";
+          echo "Width";
+        echo "</th>";
+        echo "<th>";
+          echo "Length";
+        echo "</th>";
+        echo "<th>";
+          echo "Value";
+        echo "</th>";
+      echo "</tr>";
+      //board 1 in the table
+      echo "<tr>";
+        echo "<td>";
+          echo $boardCounter2[0];
+        echo "</td>";
+        echo "<td>";
+          echo $optimumValue[0];
+        echo "</td>";
+        echo "<td>";
+          echo $optimumValue[1];
+        echo "</td>";
+        echo "<td>";
+          echo $optimumValue[2];
+        echo "</td>";
+        echo "<td>";
+          echo "$".$board1CubicInch*$optimumValue[3];
+        echo "</td>";
+      echo "</tr>";
+      //board 2 in the table
+      echo "<tr>";
+        echo "<td>";
+          echo $boardCounter2[1];
+        echo "</td>";
+        echo "<td>";
+          echo $optimumValue[4];
+        echo "</td>";
+        echo "<td>";
+          echo $optimumValue[5];
+        echo "</td>";
+        echo "<td>";
+          echo $optimumValue[6];
+        echo "</td>";
+        echo "<td>";
+          echo "$".$board2CubicInch*$optimumValue[7];
+        echo "</td>";
+      echo "</tr>";
+      //board 3 in the table
+      echo "<tr>";
+        echo "<td>";
+          echo $boardCounter2[2];
+        echo "</td>";
+        echo "<td>";
+          echo $optimumValue[8];
+        echo "</td>";
+        echo "<td>";
+          echo $optimumValue[9];
+        echo "</td>";
+        echo "<td>";
+          echo $optimumValue[10];
+        echo "</td>";
+        echo "<td>";
+          echo "$".$board3CubicInch*$optimumValue[11];
+        echo "</td>";
+      echo "</tr>";
+      //scrap case
+      echo "<tr>";
+        echo "<td colspan=\"5\">";
+          echo "Scrap: ".$round2ScrapVolume." cf";
+        echo "</td>";
+      echo "</tr>";
+    echo "</table>";
+    //value table start
+    echo "<table class = table>";
+      echo "<th>";
+        echo "";
+      echo "</th>";
+      echo "<th>";
+        echo "Value";
+      echo "</th>";
+      echo "<th>";
+        echo "% Value";
+      echo "</th>";
+      echo "<tr>";
+        echo "<td>";
+          echo "Lumber";
+        echo "</td>";
+        echo "<td>";
+          echo "$".($round2TotalValue - $round2ScrapValue);
+        echo "</td>";
+        echo "<td>";
+          echo ((($round2TotalValue - $round2ScrapValue)/$round2TotalValue)*100)."%";
+        echo "</td>";
+      echo "</tr>";
+      echo "<tr>";
+        echo "<td>";
+          echo "Scrap";
+        echo "</td>";
+        echo "<td>";
+          echo "$".$round2ScrapValue;
+        echo "</td>";
+        echo "<td>";
+          echo ((($round2ScrapValue)/$round2TotalValue)*100)."%";
+        echo "</td>";
+      echo "</tr>";
+      echo "<tr>";
+        echo "<td>";
+          echo "Total";
+        echo "</td>";
+        echo "<td>";
+          echo "$".$round2TotalValue;
+        echo "</td>";
+        echo "<td>";
+          echo "";
+        echo "</td>";
+      echo "</tr>";
+    echo "</table>";
   }
   elseif($round3TotalValue >= $round2TotalValue && $round3TotalValue >= $round1TotalValue && $round3TotalValue >= $round4TotalValue)
   {
-    echo "Round 3 was best value. <br>";
-    echo "Total Value: $".$round3TotalValue."<br>";
-    echo $optimumValue[0]."x".$optimumValue[1]."x".$optimumValue[2]." Count: ".$boardCounter3[0]."<br>";
-    echo $optimumValue[4]."x".$optimumValue[5]."x".$optimumValue[6]." Count: ".$boardCounter3[1]."<br>";
-    echo $optimumValue[8]."x".$optimumValue[9]."x".$optimumValue[10]." Count: ".$boardCounter3[2]."<br>";
+    echo "<table class = table>";
+      echo "<tr>";
+        echo "<th>";
+          echo "Quantity";
+        echo "</th>";
+        echo "<th>";
+          echo "Height";
+        echo "</th>";
+        echo "<th>";
+          echo "Width";
+        echo "</th>";
+        echo "<th>";
+          echo "Length";
+        echo "</th>";
+        echo "<th>";
+          echo "Value";
+        echo "</th>";
+      echo "</tr>";
+      //board 1 in the table
+      echo "<tr>";
+        echo "<td>";
+          echo $boardCounter3[0];
+        echo "</td>";
+        echo "<td>";
+          echo $optimumValue[0];
+        echo "</td>";
+        echo "<td>";
+          echo $optimumValue[1];
+        echo "</td>";
+        echo "<td>";
+          echo $optimumValue[2];
+        echo "</td>";
+        echo "<td>";
+          echo "$".$board1CubicInch*$optimumValue[3];
+        echo "</td>";
+      echo "</tr>";
+      //board 2 in the table
+      echo "<tr>";
+        echo "<td>";
+          echo $boardCounter3[1];
+        echo "</td>";
+        echo "<td>";
+          echo $optimumValue[4];
+        echo "</td>";
+        echo "<td>";
+          echo $optimumValue[5];
+        echo "</td>";
+        echo "<td>";
+          echo $optimumValue[6];
+        echo "</td>";
+        echo "<td>";
+          echo "$".$board2CubicInch*$optimumValue[7];
+        echo "</td>";
+      echo "</tr>";
+      //board 3 in the table
+      echo "<tr>";
+        echo "<td>";
+          echo $boardCounter3[2];
+        echo "</td>";
+        echo "<td>";
+          echo $optimumValue[8];
+        echo "</td>";
+        echo "<td>";
+          echo $optimumValue[9];
+        echo "</td>";
+        echo "<td>";
+          echo $optimumValue[10];
+        echo "</td>";
+        echo "<td>";
+          echo "$".$board3CubicInch*$optimumValue[11];
+        echo "</td>";
+      echo "</tr>";
+      //scrap case
+      echo "<tr>";
+        echo "<td colspan=\"5\">";
+          echo "Scrap: ".$round3ScrapVolume." cf";
+        echo "</td>";
+      echo "</tr>";
+    echo "</table>";
+    //value table start
+    echo "<table class = table>";
+      echo "<th>";
+        echo "";
+      echo "</th>";
+      echo "<th>";
+        echo "Value";
+      echo "</th>";
+      echo "<th>";
+        echo "% Value";
+      echo "</th>";
+      echo "<tr>";
+        echo "<td>";
+          echo "Lumber";
+        echo "</td>";
+        echo "<td>";
+          echo "$".($round3TotalValue - $round3ScrapValue);
+        echo "</td>";
+        echo "<td>";
+          echo ((($round3TotalValue - $round3ScrapValue)/$round3TotalValue)*100)."%";
+        echo "</td>";
+      echo "</tr>";
+      echo "<tr>";
+        echo "<td>";
+          echo "Scrap";
+        echo "</td>";
+        echo "<td>";
+          echo "$".$round3ScrapValue;
+        echo "</td>";
+        echo "<td>";
+          echo ((($round3ScrapValue)/$round3TotalValue)*100)."%";
+        echo "</td>";
+      echo "</tr>";
+      echo "<tr>";
+        echo "<td>";
+          echo "Total";
+        echo "</td>";
+        echo "<td>";
+          echo "$".$round3TotalValue;
+        echo "</td>";
+        echo "<td>";
+          echo "";
+        echo "</td>";
+      echo "</tr>";
+    echo "</table>";
   }
   else
   {
-    echo "Round 4 was best value. <br>";
-    echo "Total Value: $".$round4TotalValue."<br>";
-    echo $optimumValue[0]."x".$optimumValue[1]."x".$optimumValue[2]." Count: ".$boardCounter4[0]."<br>";
-    echo $optimumValue[4]."x".$optimumValue[5]."x".$optimumValue[6]." Count: ".$boardCounter4[1]."<br>";
-    echo $optimumValue[8]."x".$optimumValue[9]."x".$optimumValue[10]." Count: ".$boardCounter4[2]."<br>";
+    echo "<table class = table>";
+      echo "<tr>";
+        echo "<th>";
+          echo "Quantity";
+        echo "</th>";
+        echo "<th>";
+          echo "Height";
+        echo "</th>";
+        echo "<th>";
+          echo "Width";
+        echo "</th>";
+        echo "<th>";
+          echo "Length";
+        echo "</th>";
+        echo "<th>";
+          echo "Value";
+        echo "</th>";
+      echo "</tr>";
+      //board 1 in the table
+      echo "<tr>";
+        echo "<td>";
+          echo $boardCounter4[0];
+        echo "</td>";
+        echo "<td>";
+          echo $optimumValue[0];
+        echo "</td>";
+        echo "<td>";
+          echo $optimumValue[1];
+        echo "</td>";
+        echo "<td>";
+          echo $optimumValue[2];
+        echo "</td>";
+        echo "<td>";
+          echo "$".$board1CubicInch*$optimumValue[3];
+        echo "</td>";
+      echo "</tr>";
+      //board 2 in the table
+      echo "<tr>";
+        echo "<td>";
+          echo $boardCounter4[1];
+        echo "</td>";
+        echo "<td>";
+          echo $optimumValue[4];
+        echo "</td>";
+        echo "<td>";
+          echo $optimumValue[5];
+        echo "</td>";
+        echo "<td>";
+          echo $optimumValue[6];
+        echo "</td>";
+        echo "<td>";
+          echo "$".$board2CubicInch*$optimumValue[7];
+        echo "</td>";
+      echo "</tr>";
+      //board 3 in the table
+      echo "<tr>";
+        echo "<td>";
+          echo $boardCounter4[2];
+        echo "</td>";
+        echo "<td>";
+          echo $optimumValue[8];
+        echo "</td>";
+        echo "<td>";
+          echo $optimumValue[9];
+        echo "</td>";
+        echo "<td>";
+          echo $optimumValue[10];
+        echo "</td>";
+        echo "<td>";
+          echo "$".$board3CubicInch*$optimumValue[11];
+        echo "</td>";
+      echo "</tr>";
+      //scrap case
+      echo "<tr>";
+        echo "<td colspan=\"5\">";
+          echo "Scrap: ".$round4ScrapVolume." cf";
+        echo "</td>";
+      echo "</tr>";
+    echo "</table>";
+    //value table start
+    echo "<table class = table>";
+      echo "<th>";
+        echo "";
+      echo "</th>";
+      echo "<th>";
+        echo "Value";
+      echo "</th>";
+      echo "<th>";
+        echo "% Value";
+      echo "</th>";
+      echo "<tr>";
+        echo "<td>";
+          echo "Lumber";
+        echo "</td>";
+        echo "<td>";
+          echo "$".($round4TotalValue - $round4ScrapValue);
+        echo "</td>";
+        echo "<td>";
+          echo ((($round4TotalValue - $round4ScrapValue)/$round4TotalValue)*100)."%";
+        echo "</td>";
+      echo "</tr>";
+      echo "<tr>";
+        echo "<td>";
+          echo "Scrap";
+        echo "</td>";
+        echo "<td>";
+          echo "$".$round4ScrapValue;
+        echo "</td>";
+        echo "<td>";
+          echo ((($round4ScrapValue)/$round4TotalValue)*100)."%";
+        echo "</td>";
+      echo "</tr>";
+      echo "<tr>";
+        echo "<td>";
+          echo "Total";
+        echo "</td>";
+        echo "<td>";
+          echo "$".$round4TotalValue;
+        echo "</td>";
+        echo "<td>";
+          echo "";
+        echo "</td>";
+      echo "</tr>";
+    echo "</table>";
   }
-
-  // echo $arrayLumber[count($arrayLumber)-2]."<br>";
-  // echo $board1CubicInch."<br>";
-  // echo $totalLogVol;
 ?>

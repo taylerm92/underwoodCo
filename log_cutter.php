@@ -27,35 +27,7 @@
               optimal_cut4($logHeight, $logWidth, $optimumValue, $boardCounter4);
             }
         }
-        else
-        {
-            echo "Cannot cut log.<br>";
-        }
     }
-    echo $totalLogVol."<br>";
-    foreach($boardCounter1 as $board)
-    {
-        echo $board."<br>";
-    }
-    echo "<br>";
-    foreach($boardCounter2 as $board)
-    {
-        echo $board."<br>";
-    }
-    echo "<br>";
-    foreach($boardCounter3 as $board)
-    {
-        echo $board."<br>";
-    }
-    echo "<br>";
-    foreach($boardCounter4 as $board)
-    {
-        echo $board."<br>";
-    }
-    echo "<br>";
-
-
-
 
   function optimal_cut1($logHeight, $logWidth, $lumber, &$boardCounter1){
     $numLumber = count($lumber); //for the for loop to only loop as many boards we have
