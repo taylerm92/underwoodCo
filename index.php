@@ -12,7 +12,7 @@
 	</head>
 	<body>
 		<div class="container homecontainer">
-			<div class="companyLogo"><img src="/underwoodCo/images/logo.png" width="400" height="248"/></div>
+			<div class="companyLogo"><img src="images/logo.png" width="400" height="248"/></div>
 			<div id="loader" class="loader" style="display:none;"></div>
 			<form action="upload.php">
 				<button type="submit" class="btn btn-default">Upload Log File</button>
