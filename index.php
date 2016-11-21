@@ -27,9 +27,7 @@
 					document.getElementById('loader').style.display = "block";
 					return true;
 				})
-		 </script>
-
-
+			</script>
 		</div>
 	<!-- Scripts that shouldn't effect page load go right before the closing body tag -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
