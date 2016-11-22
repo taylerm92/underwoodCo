@@ -14,6 +14,25 @@ if (isset( $_POST['hey']))
 		<link rel="stylesheet" type="text/css" href="/underwoodCo/css/style.css">
 	</head>
 	<body>
+<!-- Nav Bar -->
+    <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="index.php">Underwood Co.</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li><a href="purchase.php">Purchase</a></li>
+          <li class="active dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="">Input<span class="caret"></span></a>
+            <ul class="dropdown-menu" id="dropdown">
+              <li><a href="upload.php">Log</a></li>
+              <li><a href="upload.php">Lumber</a></li>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
 		<div class="container">
       <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog">

@@ -12,7 +12,7 @@
 	</head>
 	<body>
 		<div class="container homecontainer">
-			<div class="companyLogo"><img src="images/logo.png" width="400" height="248"/></div>
+			<div class="companyLogo"><img src="/underwoodCo/images/logo.png" width="400" height="248"/></div>
 			<div id="loader" class="loader" style="display:none;"></div>
 			<form action="upload.php">
 				<button type="submit" class="btn btn-default">Upload Log File</button>
@@ -27,7 +27,9 @@
 					document.getElementById('loader').style.display = "block";
 					return true;
 				})
-			</script>
+		 </script>
+
+
 		</div>
 	<!-- Scripts that shouldn't effect page load go right before the closing body tag -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
