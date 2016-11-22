@@ -1,33 +1,44 @@
 <?php
-	$db;
-	$con= mysqli_connect("localhost","root","","google_maps");
-	if(mysqli_connect_errno()){ echo "Failed to connect to database ".mysqli_connect_error(); }
-	else{
-		
-	}
+	//include this file where database access is needed
+
+	//setup database as follows:
+	// database name: underwoodco
+	// table inventory: varchar size*, int quantity
+	// table econ: varchar size*, int val
+	// *primary key; must be set for update functions to work correctly
+
+	// change password here if needed
+	$password= "";
+	
+	//sample of functions.
+	updateEcon(5,5,120,30);
+	updateEcon(3,5,120,20);
+	
+	updateInventory(10,5,5,120);
+	updateInventory(10,3,5,120);
+	
+	$update= checkInventory();
+
+	echo "<pre>";
+	print_r($update);
+	echo "<pre>";
 
 	//updates the economic variables table
 	//call this function for each line read from the economic variables text file
 	function updateEcon($hgt, $wid, $len, $val){
-		global $dbName, $db;
-		if(file_exists($dbName)){
+		global $password;
+		$con= mysqli_connect("localhost","root",$password,"underwoodco");
+		if(mysqli_connect_errno()){ echo "Failed to connect to database ".mysqli_connect_error(); }
+		else{
 			//sets 'size' variable to HEIGHTxWIDTHxLENGTH format if non-zero values are passed, or to scrap otherwise
 			if($hgt == 0 || $wid == 0 || $len == 0){ $str= "scrap"; }
 			else{ $str= $hgt."x".$wid."x".$len; }
-		
-			//checks if row already exists in table
-			$sql= "SELECT COUNT(*) FROM Econ WHERE size='".$str."'";
-			$query= $db->query($sql);
-		
+			
 			//sets sql command for INSERT or UPDATE
-			if($query->fetchColumn() <= 0){ $sql= "INSERT INTO Econ (size, val) VALUES ('".$str."', ".$val.")"; }
-			else{ $sql= "UPDATE Econ SET val= ".$val." WHERE size='".$str."'"; }
+			$sql= "INSERT INTO econ (size, val) VALUES ('".$str."', ".$val.") ON DUPLICATE KEY UPDATE val=".$val;
 		
-			if($db->query($sql)){ echo "success<br>"; }
-			else{
-				$db_err = $db->errorInfo();
-				echo "Error : (". $db_err[0] .") -- " . $db_err[2];
-			}
+			if(mysqli_query($con,$sql) == false){ echo mysqli_error($con)."<br>"; }
+			mysqli_close($con);
 		}
 	}
 	//updates the inventory table
@@ -35,25 +46,19 @@
 	//set $quan to the amount that is to be entered into the inventory
 	//use a negative value when removing from the inventory
 	function updateInventory($quan, $hgt, $wid, $len){
-		global $dbName, $db;
-		if(file_exists($dbName)){
+		global $password;
+		$con= mysqli_connect("localhost","root",$password,"underwoodco");
+		if(mysqli_connect_errno()){ echo "Failed to connect to database ".mysqli_connect_error(); }
+		else{
 			//sets 'size' variable to HEIGHTxWIDTHxLENGTH format if non-zero values are passed, or to scrap otherwise
 			if($hgt == 0 || $wid == 0 || $len == 0){ $str= "scrap"; }
 			else{ $str= $hgt."x".$wid."x".$len; }
 		
-			//checks if row already exists in table
-			$sql= "SELECT COUNT(*) FROM Inventory WHERE size='".$str."'";
-			$query= $db->query($sql);
-		
 			//sets sql command for INSERT or UPDATE
-			if($query->fetchColumn() <= 0){ $sql= "INSERT INTO Inventory (quantity, size) VALUES (".$quan.", '".$str."')"; }
-			else{ $sql= "UPDATE Inventory SET quantity= quantity+".$quan." WHERE size='".$str."'"; }
+			$sql= "INSERT INTO inventory (quantity, size) VALUES (".$quan.", '".$str."') ON DUPLICATE KEY UPDATE quantity= quantity+".$quan;
 		
-			if($db->query($sql)){ echo "success<br>"; }
-			else{
-				$db_err= $db->errorInfo();
-				echo "Error : (". $db_err[0] .") -- " . $db_err[2];
-			}
+			if(mysqli_query($con,$sql) == false){ echo mysqli_error($con)."<br>"; }
+			mysqli_close($con);
 		}
 	}
 	//queries Inventory and Econ tables in database, then returns result in an array
@@ -66,22 +71,29 @@
 	//	[wid]=>width
 	//	[len]=>length
 	function checkInventory(){
-		global $dbName, $db;
-		if(file_exists($dbName)){
-			$sql= "SELECT Inventory.*, Econ.val, [Inventory.quantity]*[Econ.val] AS valSum FROM Inventory RIGHT JOIN Econ ON Inventory.size = Econ.size;";
-			$query= $db->query($sql);
+		global $password;
+		$con= mysqli_connect("localhost","root",$password,"underwoodco");
+		if(mysqli_connect_errno()){ echo "Failed to connect to database ".mysqli_connect_error(); }
+		else{
+			$sql= "SELECT inventory.*, econ.val, inventory.quantity*Econ.val AS valSum FROM inventory RIGHT JOIN econ ON inventory.size = econ.size;";
+			$result= $con->query($sql);
+			$inventory= array();
 			
-			$query= $query->fetchAll(PDO::FETCH_ASSOC);
-			
-			foreach($query as &$row){
-				if($row["size"] != "scrap"){
-					$size= explode("x",$row["size"]);
-					$row["hgt"]= intval($size[0]);
-					$row["wid"]= intval($size[1]);
-					$row["len"]= intval($size[2]);
+			if(mysqli_query($con,$sql) == false){ echo mysqli_error($con)."<br>"; }
+			else{
+				if($result->num_rows > 0){
+					while($row= $result->fetch_assoc()){
+						if($row["size"] != "scrap"){
+							$size= explode("x",$row["size"]);
+							$row["hgt"]= intval($size[0]);
+							$row["wid"]= intval($size[1]);
+							$row["len"]= intval($size[2]);
+						}
+						$inventory[]= $row;
+					}
 				}
 			}
-			return $query;
+			return $inventory;
 		}
 	}
 ?>
