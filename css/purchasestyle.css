@@ -1,0 +1,28 @@
+.purchaseform {
+  text-align: center;
+  vertical-align: middle;
+  background: rgba(0,0,0,0.5);
+  padding-top: 15px;
+  border-radius: 12px;
+  margin-top: 15%;
+}
+
+#submitbttn{
+	width: 75%;
+  margin: 0 auto;
+}
+
+#place {
+  width: 100%%;
+  margin: 0 auto;
+}
+
+#size {
+  width: 100%%;
+  margin: 0 auto;
+}
+
+#quantity {
+  width: 50%;
+  margin: 0 auto;
+}
