@@ -1,4 +1,10 @@
-<?php include 'databaseAccess.php'; ?>
+<?php include 'databaseAccess.php';
+function remove($quan, $hgt, $wid, $len){
+  //$setnegative = "-";
+  $quan = $quan-(2*$quan);
+  $quan = (int)$quan;
+  updateInventory($quan, $hgt, $wid, $len);
+} ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,12 +43,12 @@
 <div class="container-fluid">
   <div class="col-md-5"></div>
   <div class="purchaseform col-md-2">
-    <form id="form" class="form-group">
+    <form id="form" class="form-group" action="" method="post">
       <select name="size" id="size" class="form-control">
         <?php
         $inventory = checkInventory();
         foreach ($inventory as $inv) {
-          echo "<option>".$inv[size]."\t$".$inv[val]."</option><br/>";
+          echo "<option>".$inv[size]." $".$inv[val]."</option><br/>";
         }
           ?>
         </select><br/>
@@ -68,11 +74,26 @@
           <option>Tifton</option>
           <option>Waycross</option>
         </select><br/>
-        <input type="number" name="quantity" id="quantity" class="form-control"><br/>
-        <input type="submit" id="submitbttn" value="Submit" class="form-control">
+        <input type="number" name="quantity" id="quantity" class="form-control" min="1"><br/>
+        <input type="submit" name="submitbttn" id="submitbttn" class="form-control">
     </form>
   </div>
   <div class="col-md-5"></div>
 </div>
+<?php  $Qntity = $_POST["size"];
+$replace = str_replace(" ","x",$Qntity);
+ $sendSizeVal = explode("x", $replace);
+ // for each loop can be deleted if wanted.
+ // just displays the inventory for checking
+ foreach ($inventory as $inv) {
+   echo "<pre>";
+   echo "<option>".$inv['size']." $".$inv['val']." ".$inv['quantity']."</option><br/>";
+   echo "</pre>";
+ }
+ if (isset($_POST['submitbttn'])) {
+   remove($_POST['quantity'],$sendSizeVal[0],$sendSizeVal[1],$sendSizeVal[2]);
+ }
+
+ ?>
 </body>
 </html>
