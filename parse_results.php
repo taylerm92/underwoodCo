@@ -3,6 +3,7 @@
   // $boardCounter2 = [0,0,0];
   // $boardCounter3 = [0,0,0];
   // $boardCounter4 = [0,0,0];
+  $ci2cf = 0.000578704;
 
   $board1CubicInch = $optimumValue[0]*$optimumValue[1]*$optimumValue[2]; //total cubic inch for each board
   $board2CubicInch = $optimumValue[4]*$optimumValue[5]*$optimumValue[6];
@@ -12,7 +13,7 @@
   $round1Board2Total = $boardCounter1[1]*$board2CubicInch;
   $round1Board3Total = $boardCounter1[2]*$board3CubicInch;
   $round1TotalVolume = $round1Board1Total+$round1Board2Total+$round1Board3Total; //total of all boards cubic inch to calculate scrap value
-  $round1ScrapVolume = $totalLogVol - $round1TotalVolume; // total volume in cubic inch for scrap
+  $round1ScrapVolume = ($totalLogVol - $round1TotalVolume)*$ci2cf; // total volume in cubic inch for scrap
 
   $round1Board1Value = $round1Board1Total*$optimumValue[3]; //total value for all board1 cuts in round 1
   $round1Board2Value = $round1Board2Total*$optimumValue[7]; //total value for all board2 cuts in round 1
@@ -24,7 +25,7 @@
   $round2Board2Total = $boardCounter2[1]*$board2CubicInch;
   $round2Board3Total = $boardCounter2[2]*$board3CubicInch;
   $round2TotalVolume = $round2Board1Total+$round2Board2Total+$round2Board3Total; //total of all boards cubic inch to calculate scrap value
-  $round2ScrapVolume = $totalLogVol - $round2TotalVolume; // total volume in cubic inch for scrap
+  $round2ScrapVolume = ($totalLogVol - $round2TotalVolume)*$ci2cf; // total volume in cubic inch for scrap
 
   $round2Board1Value = $round2Board1Total*$optimumValue[3]; //total value for all board1 cuts in round 2
   $round2Board2Value = $round2Board2Total*$optimumValue[7]; //total value for all board2 cuts in round 2
@@ -36,7 +37,7 @@
   $round3Board2Total = $boardCounter3[1]*$board2CubicInch;
   $round3Board3Total = $boardCounter3[2]*$board3CubicInch;
   $round3TotalVolume = $round3Board1Total+$round3Board2Total+$round3Board3Total; //total of all boards cubic inch to calculate scrap value
-  $round3ScrapVolume = $totalLogVol - $round3TotalVolume; // total volume in cubic inch for scrap
+  $round3ScrapVolume = ($totalLogVol - $round3TotalVolume)*$ci2cf; // total volume in cubic inch for scrap
 
   $round3Board1Value = $round3Board1Total*$optimumValue[3]; //total value for all board1 cuts in round 3
   $round3Board2Value = $round3Board2Total*$optimumValue[7]; //total value for all board2 cuts in round 3
@@ -48,7 +49,7 @@
   $round4Board2Total = $boardCounter4[1]*$board2CubicInch;
   $round4Board3Total = $boardCounter4[2]*$board3CubicInch;
   $round4TotalVolume = $round4Board1Total+$round4Board2Total+$round4Board3Total; //total of all boards cubic inch to calculate scrap value
-  $round4ScrapVolume = $totalLogVol - $round4TotalVolume; // total volume in cubic inch for scrap
+  $round4ScrapVolume = ($totalLogVol - $round4TotalVolume)*$ci2cf; // total volume in cubic inch for scrap
 
   $round4Board1Value = $round4Board1Total*$optimumValue[3]; //total value for all board1 cuts in round 4
   $round4Board2Value = $round4Board2Total*$optimumValue[7]; //total value for all board2 cuts in round 4
