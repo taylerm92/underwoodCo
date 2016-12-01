@@ -28,6 +28,10 @@
 }
 
 #receipt {
-  z-index: 1; 
+  z-index: 1;
   background-color: white;
+}
+#map{
+  width: 250px;
+  height: 250px;
 }

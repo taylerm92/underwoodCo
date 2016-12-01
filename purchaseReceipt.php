@@ -10,10 +10,11 @@
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="/underwoodCo/css/style.css">
   <link rel="stylesheet" type="text/css" href="/underwoodCo/css/purchasestyle.css">
-
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyCZdhbVuSEaqMWfsZroA-FLJIg-9-Jxh-U"></script>
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <script type="text/javascript" src="gmaps.js"></script>
 </head>
 <body>
 <!-- Nav Bar -->
@@ -35,10 +36,23 @@
 </div>
 </nav>
 
+<script type="text/javascript">
+//create map
+  $(document).ready(function(){
+    var map = new GMaps({
+      div: '#map',
+      lat: 30.8327,
+      lng: -83.2785,
+      zoom:8,
+      disableDefaultUI: true,
+    });
+  });
+</script>
 <!-- Receipt -->
 <div class="col-md-4"></div>
 <div id="receipt" class="col-md-4">
   <h1>Bill Of Sale</h1>
+  <div class="map container" id="map"></div>
 </div>
 </body>
 </html>
