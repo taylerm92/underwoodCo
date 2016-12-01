@@ -75,14 +75,24 @@ function remove($quan, $hgt, $wid, $len){
           <option>Waycross</option>
         </select><br/>
         <input type="number" name="quantity" id="quantity" class="form-control" min="1"><br/>
+        <?php
+          if(isset($_POST['submitbttn'])) {
+          if(empty($_POST['quantity'])) {
+            header("Location: purchase.php");
+          }
+        }
+        ?>
         <input type="submit" name="submitbttn" id="submitbttn" class="form-control">
     </form>
   </div>
   <div class="col-md-5"></div>
 </div>
-<?php  $Qntity = $_POST["size"];
+<?php
+  if(isset($_POST['size'])) {
+  $Qntity = $_POST["size"];
 $replace = str_replace(" ","x",$Qntity);
  $sendSizeVal = explode("x", $replace);
+ }
  // for each loop can be deleted if wanted.
  // just displays the inventory for checking
  foreach ($inventory as $inv) {
@@ -92,6 +102,7 @@ $replace = str_replace(" ","x",$Qntity);
  }
  if (isset($_POST['submitbttn'])) {
    remove($_POST['quantity'],$sendSizeVal[0],$sendSizeVal[1],$sendSizeVal[2]);
+   header("Location: purchase.php");
  }
 
  ?>

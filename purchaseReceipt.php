@@ -36,8 +36,9 @@
 </nav>
 
 <!-- Receipt -->
-<div>
-
+<div class="col-md-4"></div>
+<div id="receipt" class="col-md-4">
+  <h1>Bill Of Sale</h1>
 </div>
 </body>
 </html>
