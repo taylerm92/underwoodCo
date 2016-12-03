@@ -43,7 +43,7 @@ function remove($quan, $hgt, $wid, $len){
 <div class="container-fluid">
   <div class="col-md-5"></div>
   <div class="purchaseform col-md-2">
-    <form id="form" class="form-group" action="" method="post">
+    <form id="form" class="form-group" action="purchaseReceipt.php" method="post">
       <select name="size" id="size" class="form-control">
         <?php
         $inventory = checkInventory();

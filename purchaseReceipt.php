@@ -36,6 +36,19 @@
 </div>
 </nav>
 
+<<?php
+$place = $_POST['place']." GA";
+$address = urlencode($place);
+$url = 'http://maps.googleapis.com/maps/api/geocode/json?address='
+.$address.'&sensor=false';
+$geocode = file_get_contents($url);
+$results = json_decode($geocode, true);
+if($results['status']=='OK'){
+  $lat = $results['results'][0]['geometry']['location']['lat'];
+  $lng = $results['results'][0]['geometry']['location']['lng'];
+}
+ ?>
+
 <script type="text/javascript">
 //create map
   $(document).ready(function(){
@@ -46,6 +59,24 @@
       zoom:8,
       disableDefaultUI: true,
     });
+    GMaps.geolocate({
+      success: function(position){
+        map.drawRoute({
+          origin: [30.8327,-83.2785],
+          destination: [<?php echo $lat;?>, <?php echo $lng;?>],
+          travelMode: 'driving',
+          strokeColor: '#804000',
+          strokeOpacity: 0.6,
+          strokeWeight: 6
+        });
+      },
+      error: function(error){
+        alert('Geolocation failed: '+error.message);
+      },
+      not_supported: function(){
+        alert("Your browser does not support geolocation");
+      }
+    })
   });
 </script>
 <!-- Receipt -->
