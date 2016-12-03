@@ -1,5 +1,22 @@
 <?php
-$place = $_POST['place']." GA";
+
+
+$date = date("F d, Y");
+switch ($_POST['place']) {
+  case 'Jacksonville':
+  case 'Madison':
+  case 'Jasper':
+  case 'Lake City':
+  case 'Monticello':
+  case 'Tallahassee':
+    $place = $_POST['place']." FL";
+    break;
+
+  default:
+    $place = $_POST['place']." GA";
+    break;
+}
+
 $address = urlencode($place);
 $url = 'http://maps.googleapis.com/maps/api/geocode/json?address='
 .$address.'&sensor=false';
@@ -45,5 +62,7 @@ if($results['status']=='OK'){
 <div class="col-md-4"></div>
   <div id="receipt" class="col-md-4">
     <h1>Bill Of Sale</h1>
+    <p> Date: <?php  echo $date; ?> </p>
+    <p> Destination: <?php echo $place; ?></p>
     <div class="map container" id="map"></div>
 </div>

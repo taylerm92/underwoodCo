@@ -2,7 +2,7 @@
   <div class="col-md-5"></div>
   <div class="purchaseform col-md-2">
     <form id="form" class="form-group" method="post">
-      <select name="size" id="size" class="form-control">
+      <select multiple name="size[]" id="size" class="form-control">
         <?php
         $inventory = checkInventory();
         foreach ($inventory as $inv) {
@@ -20,7 +20,7 @@
           <option>Jasper</option>
           <option>Lake City</option>
           <option>Lakeland</option>
-          <option>Lakepark</option>
+          <option>Lake Park</option>
           <option>Madison</option>
           <option>Monticello</option>
           <option>Nashville</option>
@@ -32,7 +32,7 @@
           <option>Tifton</option>
           <option>Waycross</option>
         </select><br/>
-        <input type="number" name="quantity" id="quantity" class="form-control" min="1"><br/>
+        <input type="number" name="quantity" id="quantity" class="form-control" value="1" min="1"><br/>
         <?php
           if(isset($_POST['submitbttn'])) {
           if(empty($_POST['quantity'])) {

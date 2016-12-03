@@ -40,18 +40,23 @@ function remove($quan, $hgt, $wid, $len){
   </div>
 </nav>
 
-<!-- purchase form -->
+<!-- Purchase Receipt -->
 <?php
  if (isset($_POST['submitbttn'])) {
    if(isset($_POST['size'])) {
-   $Qntity = $_POST["size"];
- $replace = str_replace(" ","x",$Qntity);
-  $sendSizeVal = explode("x", $replace);
-  }
-   remove($_POST['quantity'],$sendSizeVal[0],$sendSizeVal[1],$sendSizeVal[2]);
+     if($_POST['quantity']>=1) {
+       foreach($_POST['size'] as $selected){
+         $Qntity = $selected;
+         $replace = str_replace(" ","x",$Qntity);
+         $sendSizeVal = explode("x", $replace);
+         remove($_POST['quantity'],$sendSizeVal[0],$sendSizeVal[1],$sendSizeVal[2]);
+       }
+     }
+   }
    include 'purchaseReceipt.php';
    //header("Location: purchase.php");
  }
+ // Purchase Form
  else{
    include 'purchaseForm.php';
  }
