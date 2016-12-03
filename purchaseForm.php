@@ -1,7 +1,17 @@
+<script>
+function validate(){
+  var size = document.forms["form"]["size[]"].value;
+  if (size == "" ){
+    alert("You need to purchase some boards!");
+    return false;
+  }
+}
+</script>
+
 <div class="container-fluid">
   <div class="col-md-5"></div>
   <div class="purchaseform col-md-2">
-    <form id="form" class="form-group" method="post">
+    <form name="form" id="form" class="form-group" onsubmit="return validate()" method="post">
       <select multiple name="size[]" id="size" class="form-control">
         <?php
         $inventory = checkInventory();
