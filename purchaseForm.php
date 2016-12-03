@@ -22,7 +22,7 @@ function validate(){
         </select><br/>
         <select name="place" id="place" class="form-control">
           <option>Adel</option>
-          <option>Douglass</option>
+          <option>Douglas</option>
           <option>Fargo</option>
           <option>Hahira</option>
           <option>Homerville</option>
@@ -43,13 +43,6 @@ function validate(){
           <option>Waycross</option>
         </select><br/>
         <input type="number" name="quantity" id="quantity" class="form-control" value="1" min="1"><br/>
-        <?php
-          if(isset($_POST['submitbttn'])) {
-          if(empty($_POST['quantity'])) {
-            header("Location: purchase.php");
-          }
-        }
-        ?>
         <input type="submit" name="submitbttn" id="submitbttn" class="form-control">
     </form>
   </div>
