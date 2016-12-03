@@ -57,5 +57,5 @@
   $round4ScrapValue = $round4ScrapVolume*$arrayLumber[count($arrayLumber)-2]; //total value for scrap in round 4
   $round4TotalValue = $round4Board1Value+$round4Board2Value+$round4Board3Value+$round4ScrapValue; //total value of all log after being cut
 
-  include 'tables.php';
+  include 'display_tables.php';
 ?>
