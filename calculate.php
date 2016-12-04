@@ -50,12 +50,30 @@
       $arrayLogs = preg_split('/[ \n]/', $lines2); //reads logs file and stores values into array of logs
 
       include 'condition_check.php'; //gives optimal values in order
-//      foreach($optimumValue as $value)
-//      {
-//        echo $value."<br>";
-//      }
+     foreach($optimumValue as $value)
+     {
+       // echo $value."<br>";
+     }
       include 'log_cutter.php'; //cut logs
       include 'parse_results.php';
+	  include 'databaseAccess.php';
+	  $inventoryAdd= array();
+	  
+	  for($i=0; $i<count($optimumValue); $i+=4){
+		$hgt= $optimumValue[$i];
+		$wid= $optimumValue[$i+1];
+		$len= $optimumValue[$i+2];
+		$inventoryAdd[]= array('hgt'=>$hgt, 'wid'=>$wid, 'len'=>$len);
+	  }
+	  for($i=0; $i<count($inventoryAdd); $i++){
+		// updateInventory($quantities[$i], $inventoryAdd[$i]['hgt'], $inventoryAdd[$i]['wid'], $inventoryAdd[$i]['len']);
+	  }
+	  
+	  echo "<pre>";
+	  print_r($inventoryAdd);
+	  echo "<br>";
+	  print_r($quantities);
+	  echo "</pre>";
     }
     else
     {
