@@ -1,5 +1,5 @@
 <?php
-  $numLumber = count($arrayLumber)-3; //grabs only the measurements we need
+  $numLumber = count($arrayLumber)-2; //grabs only the measurements we need
 
   for($i = 0; $i < 12; $i++)
   {

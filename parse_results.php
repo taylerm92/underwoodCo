@@ -59,3 +59,12 @@
 
   include 'display_tables.php';
 ?>
+<button type="button" class="btn btn-default">Cancel</button>
+<button type="button" class="btn btn-default" name="confirm" onclick="submitQuery()">Confirm Cut</button>
+
+<?php
+  function submitQuery(){
+    
+    header('Location: purchase.php');
+  }
+?>
