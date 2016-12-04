@@ -1,8 +1,10 @@
 <?php
 $quantities;
+$scrapVolume;
 if($round1TotalValue >= $round2TotalValue && $round1TotalValue >= $round3TotalValue && $round1TotalValue >= $round4TotalValue)
 {
 	$quantities= $boardCounter1;
+	$scrapVolume= $round1ScrapVolume;
     //lumber and scrap table start
     echo "<table class = table>";
     echo "<tr>";
@@ -136,6 +138,7 @@ if($round1TotalValue >= $round2TotalValue && $round1TotalValue >= $round3TotalVa
 elseif($round2TotalValue >= $round1TotalValue && $round2TotalValue >= $round3TotalValue && $round2TotalValue >= $round4TotalValue)
 {
 	$quantities= $boardCounter2;
+	$scrapVolume= $round2ScrapVolume;
     echo "<table class = table>";
     echo "<tr>";
     echo "<th>";
@@ -268,6 +271,7 @@ elseif($round2TotalValue >= $round1TotalValue && $round2TotalValue >= $round3Tot
 elseif($round3TotalValue >= $round2TotalValue && $round3TotalValue >= $round1TotalValue && $round3TotalValue >= $round4TotalValue)
 {
 	$quantities= $boardCounter3;
+	$scrapVolume= $round3ScrapVolume;
     echo "<table class = table>";
     echo "<tr>";
     echo "<th>";
@@ -400,6 +404,7 @@ elseif($round3TotalValue >= $round2TotalValue && $round3TotalValue >= $round1Tot
 else
 {
 	$quantities= $boardCounter4;
+	$scrapVolume= $round4ScrapVolume;
     echo "<table class = table>";
     echo "<tr>";
     echo "<th>";
