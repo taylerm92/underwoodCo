@@ -8,11 +8,11 @@
 		<!-- Bootstrap MaxCDN -->
 		<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.js"></script>
 		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="/underwoodCo/css/style.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
 	<body>
 		<div class="container homecontainer">
-			<div class="companyLogo"><img src="/underwoodCo/images/logo.png" width="400" height="248"/></div>
+			<div class="companyLogo"><img src="images/logo.png" width="400" height="248"/></div>
 			<div id="loader" class="loader" style="display:none;"></div>
 			<form action="upload.php">
 				<button type="submit" class="btn btn-default">Upload Log File</button>
