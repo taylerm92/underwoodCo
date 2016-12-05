@@ -32,7 +32,7 @@
 		else{
 			//sets 'size' variable to HEIGHTxWIDTHxLENGTH format if non-zero values are passed, or to scrap otherwise
 			if($hgt == 0 || $wid == 0 || $len == 0){ $str= "scrap"; }
-			else{ $str= $hgt."x".$wid."x".$len; }
+			else{ $str= intval($hgt)."x".intval($wid)."x".intval($len); }
 
 			//sets sql command for INSERT or UPDATE
 			$sql= "INSERT INTO econ (size, val) VALUES ('".$str."', ".$val.") ON DUPLICATE KEY UPDATE val=".$val;
@@ -52,7 +52,7 @@
 		else{
 			//sets 'size' variable to HEIGHTxWIDTHxLENGTH format if non-zero values are passed, or to scrap otherwise
 			if($hgt == 0 || $wid == 0 || $len == 0){ $str= "scrap"; }
-			else{ $str= $hgt."x".$wid."x".$len; }
+			else{ $str= intval($hgt)."x".intval($wid)."x".intval($len); }
 
 			//sets sql command for INSERT or UPDATE
 			$sql= "INSERT INTO inventory (quantity, size) VALUES (".$quan.", '".$str."') ON DUPLICATE KEY UPDATE quantity= quantity+".$quan;
