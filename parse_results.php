@@ -59,12 +59,16 @@
 
   include 'display_tables.php';
 ?>
-<button type="button" class="btn btn-default">Cancel</button>
-<button type="button" class="btn btn-default" name="confirm" onclick="submitQuery()">Confirm Cut</button>
+<button type="submit" class="btn btn-default" onclick="window.location='index.php';">Cancel</button>
+<form action="" method="post">
+  <button type="submit" class="btn btn-default" name="confirm">Confirm Cut</button>
+</form>
 
 <?php
-  function submitQuery(){
-    
+  if(isset($_POST['confirm']))
+  {
+    include 'databaseAccess.php';
+    include 'updatedatabase.php';
     header('Location: purchase.php');
   }
 ?>
