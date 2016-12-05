@@ -48,13 +48,21 @@
 
       $lines2 = file_get_contents("files/logs.txt");
       $arrayLogs = preg_split('/[ \n]/', $lines2); //reads logs file and stores values into array of logs
-
+	  
       include 'condition_check.php'; //gives optimal values in order
       include 'log_cutter.php'; //cut logs
       include 'parse_results.php';
 	  include 'databaseAccess.php';
 	  
-	  //adds boards to inventory
+	  //adds economic data to database
+	  $econAdd= preg_split('/[\n]/', $lines1, -1, PREG_SPLIT_NO_EMPTY);
+	  foreach($econAdd as $econ){
+		$econ= preg_split('/[ ]/', $econ);
+		if(count($econ) == 1){ updateEcon(0,0,0,$econ[0]); }
+		else{ updateEcon($econ[0], $econ[1], $econ[2], $econ[3]); }
+	  }
+	  
+	  //adds boards to inventory database
 	  $inventoryAdd= array();
 	  for($i=0; $i<count($optimumValue); $i+=4){
 		$hgt= $optimumValue[$i];
@@ -67,10 +75,6 @@
 	  }
 	  //adds scrap to inventory
 	  // updateInventory($scrapVolume,0,0,0);
-	  
-	  echo "<pre>";
-	  
-	  echo "</pre>";
     }
     else
     {

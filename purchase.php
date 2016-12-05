@@ -1,10 +1,4 @@
-<?php include 'databaseAccess.php';
-function remove($quan, $hgt, $wid, $len){
-  //$setnegative = "-";
-  $quan = $quan-(2*$quan);
-  $quan = (int)$quan;
-  updateInventory($quan, $hgt, $wid, $len);
-} ?>
+<?php include 'databaseAccess.php'; ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,9 +41,13 @@ function remove($quan, $hgt, $wid, $len){
      if($_POST['quantity']>=1) {
        foreach($_POST['size'] as $selected){
          $Qntity = $selected;
-         $replace = str_replace(" ","x",$Qntity);
-         $sendSizeVal = explode("x", $replace);
-         remove($_POST['quantity'],$sendSizeVal[0],$sendSizeVal[1],$sendSizeVal[2]);
+		 $replace = str_replace(" ","x",$Qntity);
+		 $sendSizeVal = explode("x", $replace);
+		 
+		 if($sendSizeVal[0] == 'scrap'){ updateInventory(-$_POST['quantity'],0,0,0); }
+		 else{
+			updateInventory(-$_POST['quantity'],$sendSizeVal[0],$sendSizeVal[1],$sendSizeVal[2]);
+		 }
        }
      }
    }

@@ -4,7 +4,7 @@
 	//setup database as follows:
 	// database name: underwoodco
 	// table inventory: varchar size*, int quantity
-	// table econ: varchar size*, int val
+	// table econ: varchar size*, float val
 	// *primary key; must be set for update functions to work correctly
 
 	// change password here if needed
