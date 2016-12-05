@@ -147,7 +147,7 @@ if($results['status']=='OK'){
 </script>
 
 <?php
-  $totalOverage = $distance * .25;
+$totalOverage = number_format($distance * .25, 2, '.', '');
 ?>
 <!-- Receipt -->
 <div class="col-md-4"></div>
@@ -155,11 +155,11 @@ if($results['status']=='OK'){
     <h1>Bill Of Sale</h1>
     <p> Date: <?php  echo $date; ?> </p>
     <p> Destination: <?php echo $place; ?></p>
-    <p> Product Charges: </p>
     <?php
       $total = 0;
       echo "<table class=\"table-striped\" id=\"productcharges\">
             <thead>
+              <caption>Product Charges: </caption>
               <td>Size</td><td>Quantity</td><td>Unit Price</td><td>Total Price</td>
             </thead>";
       foreach ($_POST['size'] as $s) {
@@ -186,8 +186,8 @@ if($results['status']=='OK'){
         $lbs += number_format(($cubicfeet * 38) * $_POST['quantity'], 2, '.', '');
       }
     ?>
-    <p> Delivery Charges: </p>
     <table id="deliverycharge" class="table-striped">
+      <caption>Delivery Charges: </caption>
       <tr>
         <td>Total Weight</td><td><?php echo $lbs ?> lbs</td>
       </tr>
@@ -217,13 +217,14 @@ if($results['status']=='OK'){
         <td>Total Delivery Charges</td><td>
           <?php
             if($distanceCharge == true) {
-              echo "$".$totalOverage;
+              echo "$".($totalOverage*$trucks);
+              $total += $totalOverage;
             } else {
               echo "N/A";
             }
           ?></td>
       </tr>
     </table>
-    <p> Total Charges: $<?php echo number_format($total + $totalOverage, 2, '.', ''); ?></p>
+    <p> Total Charges: $<?php echo number_format($total, 2, '.', ''); ?></p>
     <div class="map container" id="map"></div>
 </div>

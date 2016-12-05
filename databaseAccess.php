@@ -8,7 +8,7 @@
 	// *primary key; must be set for update functions to work correctly
 
 	// change password here if needed
-	$password= "";
+	$password= "joseph210";
 
 	//sample of functions.
 	// updateEcon(5,5,120,30);
