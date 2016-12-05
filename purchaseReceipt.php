@@ -157,7 +157,7 @@ $totalOverage = number_format($distance * .25, 2, '.', '');
     <p> Destination: <?php echo $place; ?></p>
     <?php
       $total = 0;
-      echo "<table class=\"table-striped\" id=\"productcharges\">
+      echo "<table class=\"table-striped\" id=\"productcharges\" style=\"width:100%;\">
             <thead>
               <caption>Product Charges: </caption>
               <td>Size</td><td>Quantity</td><td>Unit Price</td><td>Total Price</td>
@@ -186,7 +186,7 @@ $totalOverage = number_format($distance * .25, 2, '.', '');
         $lbs += number_format(($cubicfeet * 38) * $_POST['quantity'], 2, '.', '');
       }
     ?>
-    <table id="deliverycharge" class="table-striped">
+    <table id="deliverycharge" class="table-striped" style="width:100%;">
       <caption>Delivery Charges: </caption>
       <tr>
         <td>Total Weight</td><td><?php echo $lbs ?> lbs</td>
@@ -224,7 +224,12 @@ $totalOverage = number_format($distance * .25, 2, '.', '');
             }
           ?></td>
       </tr>
+      <tr>
+        <td><h4 style="font-weight: bold;">Total Charges: </h4></td><td><br>
+        <p style="font-weight: bold;">$<?php echo number_format($total, 2, '.', ''); ?></p>
+        </td>
+      </tr>
     </table>
-    <p> Total Charges: $<?php echo number_format($total, 2, '.', ''); ?></p>
-    <div class="map container" id="map"></div>
+
+    <div class="map container" id="map" style="width:100%; padding:0; margin-bottom: 15px; height: 220px;"></div>
 </div>

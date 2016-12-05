@@ -1,3 +1,11 @@
+<?php
+  session_start();
+
+  $_SESSION['size'] = $_POST['size'];
+  $_SESSION['place'] = $_POST['place'];
+  $_SESSION['quant']  $_POST['quantity'];
+?>
+
 <script>
 function validate(){
   var size = document.forms["form"]["size[]"].value;

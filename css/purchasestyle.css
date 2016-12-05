@@ -28,6 +28,8 @@
 }
 
 #receipt {
+  border-radius: 6px;
+  box-shadow: 1px 1px 10px black;
   z-index: 1;
   background-color: white;
 }
