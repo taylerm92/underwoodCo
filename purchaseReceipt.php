@@ -176,8 +176,12 @@ if($results['status']=='OK'){
 
       $lbs = 0;
       foreach($_POST['size'] as $s) {
-        $deliver = explode("x", $s);
-        $volume = $deliver[0] * $deliver[1] * $deliver[2];
+		$str= explode(" ", $s);
+		if($str[0] == "scrap"){ $volume= 1; }
+        else{
+			$deliver = explode("x", $s);
+			$volume = $deliver[0] * $deliver[1] * $deliver[2];
+		}
         $cubicfeet = $volume * .000578704;
         $lbs += number_format(($cubicfeet * 38) * $_POST['quantity'], 2, '.', '');
       }

@@ -16,8 +16,8 @@ function validate(){
         <?php
         $inventory = checkInventory();
         foreach ($inventory as $inv) {
-			if($inv[size] == "scrap"){ echo "<option>".$inv[size]." $".$inv[val]." /cf</option><br/>";; }
-			else{ echo "<option>".$inv[size]." $".$inv[val]." /board</option><br/>"; }
+			if($inv[size] == "scrap"){ echo "<option>".$inv[size]." $".$inv[val]."</option><br/>";; }
+			else{ echo "<option>".$inv[size]." $".$inv[val]."</option><br/>"; }
         }
           ?>
         </select><br/>
