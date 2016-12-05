@@ -59,10 +59,12 @@
 
   include 'display_tables.php';
 ?>
-<button type="submit" class="btn btn-default" onclick="window.location='index.php';">Cancel</button>
-<form action="" method="post">
-  <button type="submit" class="btn btn-default" name="confirm">Confirm Cut</button>
-</form>
+<div style="margin-top: 50px; text-align: center;">
+  <button type="submit" class="btn btn-default" onclick="window.location='index.php';" style="margin-right: 20px;">Cancel</button>
+  <form action="" method="post" style="display: inline-block;">
+    <button type="submit" class="btn btn-default" name="confirm">Confirm Cut</button>
+  </form>
+</div>
 
 <?php
   if(isset($_POST['confirm']))

@@ -21,6 +21,7 @@
 			<form id="calculate" action="calculate.php">
 				<button type="submit" class="btn btn-default calculatebtn">Calculate</button>
 			</form>
+			<button type="submit" class="btn btn-default purchase" onclick="window.location='purchase.php';">Purchase</button>
 
 			<script type="text/javascript">
 				$('#calculate').submit(function(){

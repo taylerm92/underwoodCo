@@ -1,9 +1,9 @@
 <?php
   session_start();
 
-  $_SESSION['size'] = $_POST['size'];
-  $_SESSION['place'] = $_POST['place'];
-  $_SESSION['quant']  $_POST['quantity'];
+  // $_SESSION['size'] = $_POST['size'];
+  // $_SESSION['place'] = $_POST['place'];
+  // $_SESSION['quant']  $_POST['quantity'];
 ?>
 
 <script>

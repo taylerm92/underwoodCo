@@ -14,6 +14,9 @@ html, body {
 }
 
 .btn-file {
+		margin-left: 27%;
+		width: 505px !important;
+		height: 150px !important;
     position: relative;
     overflow: hidden;
 }
@@ -47,15 +50,44 @@ html, body {
 }
 
 .btn{
+	font-weight: bold;
 	width: 250px;
 	height: 100px;
+	transition: all .2s ease-in-out;
+}
+
+.btn:hover{
+	background-color: white;
+	border: 1px solid black;
+	transform: scale(1.1);
 }
 
 .calculatebtn{
+	font-weight: normal;
+	font-size: 27pt;
 	margin-top: 5px;
-	margin-bottom: 15px;
 	width: 505px;
-	height: 200px;
+	height: 150px;
+	transition: all .2s ease-in-out;
+}
+
+.calculatebtn:hover{
+	background-color: white;
+	border: 1px solid black;
+	font-size: 27pt;
+	transform: scale(1.1);
+}
+
+.purchase{
+	margin-top: 5px;
+	width: 505px;
+	height: 50px;
+}
+
+.purchase:hover{
+	background-color: white;
+	border: 1px solid black;
+	transform: scale(1.1);
 }
 
 .loader {

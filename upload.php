@@ -54,9 +54,9 @@ if (isset( $_POST['hey']))
 
         </div>
       </div>
-
+      	<div class="companyLogo"><img src="images/logo.png" width="400" height="248"/></div>
 			<form action="" method="POST" enctype="multipart/form-data">
-				<span class="btn btn-default btn-file">Upload<input type="file" name="text" onchange="this.form.submit();" /></span>
+				<span class="btn btn-default btn-file"><p style="padding-top: 50px; font-size: 27pt;">Upload</p><input type="file" name="text" onchange="this.form.submit();" /></span>
 			</form>
 		</div>
 	<!-- Scripts that shouldn't effect page load go right before the closing body tag -->
