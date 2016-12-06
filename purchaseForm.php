@@ -1,11 +1,3 @@
-<?php
-  session_start();
-
-  // $_SESSION['size'] = $_POST['size'];
-  // $_SESSION['place'] = $_POST['place'];
-  // $_SESSION['quant']  $_POST['quantity'];
-?>
-
 <script>
 function validate(){
   var size = document.forms["form"]["size[]"].value;
@@ -20,15 +12,16 @@ function validate(){
   <div class="col-md-5"></div>
   <div class="purchaseform col-md-2">
     <form name="form" id="form" class="form-group" onsubmit="return validate()" method="post">
-      <select multiple name="size[]" id="size" class="form-control">
-        <?php
+      <?php
+	$i = 0;
         $inventory = checkInventory();
         foreach ($inventory as $inv) {
-			if($inv[size] == "scrap"){ echo "<option>".$inv[size]." $".$inv[val]."</option><br/>";; }
-			else{ echo "<option>".$inv[size]." $".$inv[val]."</option><br/>"; }
+	  echo "<label for=\"".$i."\">".$inv['size']." $".$inv['val']."</label>
+	  	<input type=\"number\" min=\"0\" value=\"0\" name=\"".$i."\" class=\"form-control\" />";
+	  $i++;
         }
-          ?>
-        </select><br/>
+       ?>
+       <br/>
         <select name="place" id="place" class="form-control">
           <option>Adel</option>
           <option>Douglas</option>
@@ -51,7 +44,6 @@ function validate(){
           <option>Tifton</option>
           <option>Waycross</option>
         </select><br/>
-        <input type="number" name="quantity" id="quantity" class="form-control" value="1" min="1"><br/>
         <input type="submit" name="submitbttn" id="submitbttn" class="form-control">
     </form>
   </div>
