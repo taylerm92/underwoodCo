@@ -165,21 +165,24 @@ $totalOverage = number_format($distance * .25, 2, '.', '');
       $i = 0;
       $inventory = checkInventory();
       foreach ($inventory as $inv) {
-        $t = (float)$_POST[$i] * (float)$product[1];
-        echo "<tr>
-                <td>".$inv['size']."</td>
-                <td>".$_POST[$i]."</td>
-                <td>$".$inv['val']."</td>
-                <td>$".$t."</td>
-              </tr>";
-        $total += $t;
-	$i++;
+        $t = (float)$_POST[$i] * (float)$inv['val'];
+		if($_POST[$i] == 0){}
+		else{
+			echo "<tr>
+					<td>".$inv['size']."</td>
+					<td>".$_POST[$i]."</td>
+					<td>$".$inv['val']."</td>
+					<td>$".$t."</td>
+				</tr>";
+		}
+		$total += $t;
+		$i++;
       }
 
       $i = 0;
       $lbs = 0;
       foreach($inventory as $inv) {
-        if($str[0] == "scrap"){ $volume= 1; }
+        if($inv['size'] == "scrap"){ $volume= 1; }
         else{
 			$deliver = explode("x", $inv['size']);
 			$volume = $deliver[0] * $deliver[1] * $deliver[2];
