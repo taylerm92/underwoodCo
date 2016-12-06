@@ -16,7 +16,7 @@ function validate(){
 	$i = 0;
         $inventory = checkInventory();
         foreach ($inventory as $inv) {
-	  echo "<label for=\"".$i."\">".$inv['size']." $".$inv['val']."</label>
+	  echo "<label for=\"".$i."\" id=\"label\">".$inv['size']." $".$inv['val']."</label>
 	  	<input type=\"number\" min=\"0\" value=\"0\" name=\"".$i."\" class=\"form-control\" />";
 	  $i++;
         }
