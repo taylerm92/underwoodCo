@@ -236,5 +236,5 @@ $totalOverage = number_format($distance * .25, 2, '.', '');
       </tr>
     </table>
 
-    <div class="map container" id="map" style="width:100%; padding:0; margin-bottom: 15px; height: 220px;"></div>
+    <div class="map container" id="map" style="width:100%; padding:0; margin-bottom: 15px; height: 180px;"></div>
 </div>

@@ -8,18 +8,25 @@ function validate(){
 }
 </script>
 
-<div class="container-fluid">
-  <div class="col-md-5"></div>
-  <div class="purchaseform col-md-2">
-    <form name="form" id="form" class="form-group" onsubmit="return validate()" method="post">
+  <div class="container">
+    <form name="form" id="form" class="form-inline" onsubmit="return validate()" method="post">
       <?php
-	$i = 0;
+	     $i = 0;
         $inventory = checkInventory();
+        echo "<div class=\"purchinventory col-sm-6\">";
         foreach ($inventory as $inv) {
-	  echo "<label for=\"".$i."\" id=\"label\">".$inv['size']." $".$inv['val']."</label>
-	  	<input type=\"number\" min=\"0\" value=\"0\" name=\"".$i."\" class=\"form-control\" />";
-	  $i++;
+          echo "<div class=\"form-group\">";
+	        echo "<label class=\"col-lg-6\" for=\"".$i."\" id=\"label\">".$inv['size']." $".$inv['val']."</label>";
+          echo "<div class=\"col-lg-6\">";
+	  	    echo "<input class=\"counter form-control\" type=\"number\" min=\"0\" value=\"0\" name=\"".$i."\" class=\"form-control\" />";
+          echo "</div>";
+
+	        $i++;
+          echo "</div>";
+          echo "<br>";
         }
+        echo "</div>";
+        echo "<div class=\"submitinventory col-sm-6\">";
        ?>
        <br/>
         <select name="place" id="place" class="form-control">
@@ -44,8 +51,7 @@ function validate(){
           <option>Tifton</option>
           <option>Waycross</option>
         </select><br/>
-        <input type="submit" name="submitbttn" id="submitbttn" class="form-control">
+        <input type="submit" name="submitbttn" id="submitbttn" class="submit btn btn-default">
+      </div>
     </form>
-  </div>
-  <div class="col-md-5"></div>
 </div>

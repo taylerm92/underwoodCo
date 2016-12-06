@@ -7,14 +7,54 @@
   margin-top: 15%;
 }
 
-#submitbttn{
-	width: 75%;
+.form-group{
+  width: 100% !important;
+  text-align: center !important;
+  margin-bottom: 5px !important;
+  padding-left: 10px !important;
+}
+
+.purchinventory{
+  padding-top: 10px;
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
+}
+
+.submitinventory{
+  padding-top: 200px;
+}
+
+.form-inline{
+  height: 600px;
+  border-radius: 3px;
+  margin: 0 auto !important;
+  padding-top: 15px;
+  padding-bottom: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.submit{
+  width: 250px;
+  height: 100px;
   margin: 0 auto;
+  display: block !important;
+  margin-bottom: 20px !important;
+}
+
+.counter{
+  width: 65px !important;
 }
 
 #place {
-  width: 100%%;
-  margin: 0 auto;
+  margin-top: 100px;
+  width: 250px !important;
+  display: block !important;
+  margin: 0 auto !important;
+}
+
+#place:hover{
+  cursor: pointer;
 }
 
 #size {
@@ -35,9 +75,26 @@
 }
 #map{
   width: 250px;
-  height: 250px;
+  height: 180px;
 }
 
 #label {
-  color: white;	
+  color: white;
+}
+
+/* Scroll Bar Styling */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    //-webkit-box-shadow: inset 0 0 6px grey;
+    //border-radius: 10px;
+		background-color: black;
+}
+
+::-webkit-scrollbar-thumb {
+		background-color: grey;
+    //border-radius: 10px;
+    //-webkit-box-shadow: inset 0 0 6px black;
 }
