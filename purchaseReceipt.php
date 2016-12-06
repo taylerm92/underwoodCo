@@ -185,7 +185,7 @@ $totalOverage = number_format($distance * .25, 2, '.', '');
 			$volume = $deliver[0] * $deliver[1] * $deliver[2];
 		}
         $cubicfeet = $volume * .000578704;
-        $lbs += number_format(($cubicfeet * 38) * $_POST['quantity'], 2, '.', '');
+        $lbs += number_format(($cubicfeet * 38) * $_POST[$i], 2, '.', '');
       }
     ?>
     <table id="deliverycharge" class="table-striped" style="width:100%;">
