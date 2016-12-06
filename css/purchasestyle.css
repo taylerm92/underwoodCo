@@ -73,6 +73,12 @@
   z-index: 1;
   background-color: white;
 }
+#receiptInner {
+  padding: 5px;
+  border-radius: 6px;
+  z-index: 1;
+  background-color: white;
+}
 #map{
   width: 250px;
   height: 180px;

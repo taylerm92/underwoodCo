@@ -8,7 +8,7 @@
 	// *primary key; must be set for update functions to work correctly
 
 	// change password here if needed
-	$password= "";
+	$password= "password";
 
 	//sample of functions.
 	// updateEcon(5,5,120,30);
@@ -96,19 +96,19 @@
 			return $inventory;
 		}
 	}
-	
+
 	//checks quantity of board specified by the input hgt, wid, and len
 	function checkQuantity($hgt, $wid, $len){
 		global $password;
 		$con= mysqli_connect("localhost","root",$password,"underwoodco");
 		$quan;
-		
+
 		if(mysqli_connect_errno()){ echo "Failed to connect to database ".mysqli_connect_error(); }
 		else{
 			//sets 'size' variable to HEIGHTxWIDTHxLENGTH format if non-zero values are passed, or to scrap otherwise
 			if($hgt == 0 || $wid == 0 || $len == 0){ $str= "scrap"; }
 			else{ $str= intval($hgt)."x".intval($wid)."x".intval($len); }
-			
+
 			$sql= "SELECT quantity FROM inventory WHERE size = '".$str."';";
 			$result= $con->query($sql);
 			if(mysqli_query($con,$sql) == false){ echo mysqli_error($con)."<br>"; }

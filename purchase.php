@@ -11,6 +11,7 @@
   <link rel="stylesheet" type="text/css" href="css/purchasestyle.css">
   <script type="text/javascript" src="gmaps.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script type="text/javascript" src="html2canvas.js"></script>
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 </head>
@@ -37,20 +38,18 @@
 <!-- Purchase Receipt -->
 <?php
  if (isset($_POST['submitbttn'])) {
-   if(isset($_POST['size'])) {
-     if($_POST['quantity']>=1) {
-       foreach($_POST['size'] as $selected){
-         $Qntity = $selected;
+     $inventory = checkInventory();
+      $i=0;
+       foreach($inventory as $inv){
+         $Qntity = $inv['size'];
 		 $replace = str_replace(" ","x",$Qntity);
 		 $sendSizeVal = explode("x", $replace);
-		 
-		 if($sendSizeVal[0] == 'scrap'){ updateInventory(-$_POST['quantity'],0,0,0); }
+		 if($sendSizeVal[0] == 'scrap'){ updateInventory(-$_POST[$i],0,0,0); }
 		 else{
-			updateInventory(-$_POST['quantity'],$sendSizeVal[0],$sendSizeVal[1],$sendSizeVal[2]);
+			updateInventory(-$_POST[$i],$sendSizeVal[0],$sendSizeVal[1],$sendSizeVal[2]);
 		 }
-       }
+     $i++;
      }
-   }
    include 'purchaseReceipt.php';
    //header("Location: purchase.php");
  }
