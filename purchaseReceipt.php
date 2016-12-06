@@ -152,6 +152,7 @@ $totalOverage = number_format($distance * .25, 2, '.', '');
 <!-- Receipt -->
 <div class="col-md-4"></div>
   <div id="receipt" class="col-md-4">
+  <div id="receiptInner">
     <h1>Bill Of Sale</h1>
     <p> Date: <?php  echo $date; ?> </p>
     <p> Destination: <?php echo $place; ?></p>
@@ -160,7 +161,7 @@ $totalOverage = number_format($distance * .25, 2, '.', '');
       echo "<table class=\"table-striped\" id=\"productcharges\" style=\"width:100%;\">
             <thead>
               <caption>Product Charges: </caption>
-              <td>Size</td><td>Quantity</td><td>Unit Price</td><td>Total Price</td>
+              <td>Product</td><td>Quantity</td><td>Unit Price</td><td>Total Price</td>
             </thead>";
       $i = 0;
       $inventory = checkInventory();
@@ -235,6 +236,21 @@ $totalOverage = number_format($distance * .25, 2, '.', '');
         </td>
       </tr>
     </table>
-
-    <div class="map container" id="map" style="width:100%; padding:0; margin-bottom: 15px; height: 180px;"></div>
 </div>
+    <div class="map container" id="map" style="width:100%; padding:0; margin-bottom: 15px; height: 220px;"></div>
+</div>
+
+<button type="button" onclick="capture()" name="saveReceipt">Save</button>
+
+<script>
+  function capture(){
+    html2canvas([document.getElementById('receiptInner')], {
+      onrendered: function(canvas){
+        var img = canvas.toDataURL()
+        $.post("save.php", {data: img}, function(file){
+          window.location.href = "download.php?path="+ file});
+      }
+    });
+  }
+
+</script>
