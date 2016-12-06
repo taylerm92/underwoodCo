@@ -17,7 +17,7 @@
 	// updateInventory(10,5,5,120);
 	// updateInventory(10,3,5,120);
 
-	$update= checkInventory();
+	// $update= checkInventory();
 
 	// echo "<pre>";
 	// print_r($update);
@@ -95,5 +95,25 @@
 			}
 			return $inventory;
 		}
+	}
+	
+	//checks quantity of board specified by the input hgt, wid, and len
+	function checkQuantity($hgt, $wid, $len){
+		global $password;
+		$con= mysqli_connect("localhost","root",$password,"underwoodco");
+		$quan;
+		
+		if(mysqli_connect_errno()){ echo "Failed to connect to database ".mysqli_connect_error(); }
+		else{
+			//sets 'size' variable to HEIGHTxWIDTHxLENGTH format if non-zero values are passed, or to scrap otherwise
+			if($hgt == 0 || $wid == 0 || $len == 0){ $str= "scrap"; }
+			else{ $str= intval($hgt)."x".intval($wid)."x".intval($len); }
+			
+			$sql= "SELECT quantity FROM inventory WHERE size = '".$str."';";
+			$result= $con->query($sql);
+			if(mysqli_query($con,$sql) == false){ echo mysqli_error($con)."<br>"; }
+			$quan= $result->fetch_assoc();
+		}
+		return $quan['quantity'];
 	}
 ?>
