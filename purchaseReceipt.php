@@ -162,24 +162,26 @@ $totalOverage = number_format($distance * .25, 2, '.', '');
               <caption>Product Charges: </caption>
               <td>Size</td><td>Quantity</td><td>Unit Price</td><td>Total Price</td>
             </thead>";
-      foreach ($_POST['size'] as $s) {
-        $product = explode(" $", $s);
-        $t = (float)$_POST['quantity'] * (float)$product[1];
+      $i = 0;
+      $inventory = checkInventory();
+      foreach ($inventory as $inv) {
+        $t = (float)$_POST[$i] * (float)$product[1];
         echo "<tr>
-                <td>".$product[0]."</td>
-                <td>".$_POST['quantity']."</td>
-                <td>$".$product[1]."</td>
+                <td>".$inv['size']."</td>
+                <td>".$_POST[$i]."</td>
+                <td>$".$inv['val']."</td>
                 <td>$".$t."</td>
               </tr>";
         $total += $t;
+	$i++;
       }
 
+      $i = 0;
       $lbs = 0;
-      foreach($_POST['size'] as $s) {
-		$str= explode(" ", $s);
-		if($str[0] == "scrap"){ $volume= 1; }
+      foreach($inventory as $inv) {
+        if($str[0] == "scrap"){ $volume= 1; }
         else{
-			$deliver = explode("x", $s);
+			$deliver = explode("x", $inv['size']);
 			$volume = $deliver[0] * $deliver[1] * $deliver[2];
 		}
         $cubicfeet = $volume * .000578704;
