@@ -37,7 +37,7 @@ function validate(){
               <td>
                 <?php
                 if($inv['size']=='scrap'){
-                  echo checkQuantity(0,0,0);
+                  echo checkQuantity(0,0,0)." (cf)";
                 }
                 else {
                   echo checkQuantity($inv["hgt"], $inv["wid"], $inv["len"]);
@@ -45,7 +45,15 @@ function validate(){
                  ?>
               </td>
               <td>
-                <?php echo "<input class=\"counter form-control\" type=\"number\" min=\"0\" value=\"0\" name=\"".$i."\" class=\"form-control\" />"; ?>
+                <input class="counter form-control" type="number" min="0" max="<?php
+                if($inv['size']=='scrap'){
+                  echo checkQuantity(0,0,0)." (cf)";
+                }
+                else {
+                  echo checkQuantity($inv["hgt"], $inv["wid"], $inv["len"]);
+                }
+                 ?>" value="0" name="<?php echo $i; ?>" class="form-control" />
+
               </td>
               <?php  $i++; ?>
           </tr>
