@@ -7,6 +7,11 @@
   margin-top: 15%;
 }
 
+.table{
+  color: white;
+  text-align: center;
+}
+
 .form-group{
   width: 100% !important;
   text-align: center !important;
@@ -22,16 +27,17 @@
 }
 
 .submitinventory{
-  padding-top: 200px;
+  padding-top: 180px;
 }
 
 .form-inline{
   height: 600px;
-  border-radius: 3px;
+  border-radius: 5px;
   margin: 0 auto !important;
   padding-top: 15px;
   padding-bottom: 10px;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.6);
+  box-shadow: 1px 1px 5px black;
 }
 
 .submit{
@@ -47,7 +53,7 @@
 }
 
 #place {
-  margin-top: 100px;
+  margin-top: 80px;
   width: 250px !important;
   display: block !important;
   margin: 0 auto !important;
@@ -86,6 +92,21 @@
 
 #label {
   color: white;
+}
+
+.glyphicon-download-alt{
+  margin-top: 2px;
+  font-size: 2em;
+  float: right;
+  color: black;
+  text-decoration: none;
+}
+
+.glyphicon-download-alt:hover{
+  margin-top: 4px;
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 /* Scroll Bar Styling */

@@ -14,21 +14,45 @@ function validate(){
 	     $i = 0;
         $inventory = checkInventory();
         echo "<div class=\"purchinventory col-sm-6\">";
+        ?>
+        <table class="table table-condensed">
+          <thead>
+            <tr>
+              <th style="text-align:center;">Board Size</th>
+              <th style="text-align:center;">Value</th>
+              <th style="text-align:center;">Quantity</th>
+              <th style="text-align:center;">Purchase</th>
+            </tr>
+          </thead>
+          <tbody>
+        <?php
         foreach ($inventory as $inv) {
-          echo "<div class=\"form-group\">";
-	        echo "<label class=\"col-lg-6\" for=\"".$i."\" id=\"label\">".$inv['size']." $".$inv['val']."</label>";
-          echo "<div class=\"col-lg-6\">";
-	  	    echo "<input class=\"counter form-control\" type=\"number\" min=\"0\" value=\"0\" name=\"".$i."\" class=\"form-control\" />";
-          echo "</div>";
-
-	        $i++;
-          echo "</div>";
-          echo "<br>";
+          ?><tr>
+              <td>
+                <?php echo $inv['size']; ?>
+              </td>
+              <td>
+                <?php echo "$".$inv['val']; ?>
+              </td>
+              <td>
+                2
+              </td>
+              <td>
+                <?php echo "<input class=\"counter form-control\" type=\"number\" min=\"0\" value=\"0\" name=\"".$i."\" class=\"form-control\" />"; ?>
+              </td>
+              <?php  $i++; ?>
+          </tr>
+          <?php
         }
+        ?>
+        </tbody>
+      </table>
+        <?php
         echo "</div>";
         echo "<div class=\"submitinventory col-sm-6\">";
        ?>
        <br/>
+       <h3 style="color: white; text-align: center;">Shipping Location</h3>
         <select name="place" id="place" class="form-control">
           <option>Adel</option>
           <option>Douglas</option>
@@ -51,7 +75,7 @@ function validate(){
           <option>Tifton</option>
           <option>Waycross</option>
         </select><br/>
-        <input type="submit" name="submitbttn" id="submitbttn" class="submit btn btn-default">
+        <button type="submit" name="submitbttn" id="submitbttn" class="submit btn btn-default" style="font-size: 20pt;">Purchase</button>
       </div>
     </form>
 </div>

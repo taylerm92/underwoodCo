@@ -153,6 +153,7 @@ $totalOverage = number_format($distance * .25, 2, '.', '');
 <div class="col-md-4"></div>
   <div id="receipt" class="col-md-4">
   <div id="receiptInner">
+    <a class="glyphicon glyphicon-download-alt" type="button" onclick="capture()" name="saveReceipt"></a>
     <h1>Bill Of Sale</h1>
     <p> Date: <?php  echo $date; ?> </p>
     <p> Destination: <?php echo $place; ?></p>
@@ -241,7 +242,7 @@ $totalOverage = number_format($distance * .25, 2, '.', '');
     <div class="map container" id="map" style="width:100%; padding:0; margin-bottom: 15px; height: 220px;"></div>
 </div>
 
-<button type="button" onclick="capture()" name="saveReceipt">Save</button>
+
 
 <script>
   function capture(){
