@@ -1,7 +1,8 @@
-<?php
+<?php //include 'databaseAccess.php';
+	date_default_timezone_set('America/New_York');
 	$data = $_POST['data'];
-	$file = md5(uniqid()) . '.png';
-
+	$file = 'Receipt_'.date("H-i-s_m-d-Y"). '.png';
+ 	//updateReceipts($file);
 	// remove "data:image/png;base64,"
 	$uri =  substr($data,strpos($data,",")+1);
 

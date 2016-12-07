@@ -5,6 +5,7 @@
 	// database name: underwoodco
 	// table inventory: varchar size*, int quantity
 	// table econ: varchar size*, float val
+	// table receipts: int id*, mediumblob pic, date date
 	// *primary key; must be set for update functions to work correctly
 
 	// change password here if needed
@@ -61,6 +62,19 @@
 			mysqli_close($con);
 		}
 	}
+	//updates receipts database
+	// function updateReceipts($file){
+	// 	global $password;
+	// 	$con= mysqli_connect("localhost","root",$password,"underwoodco");
+	// 	if(mysqli_connect_errno()){ echo "Failed to connect to database ".mysqli_connect_error(); }
+	// 	else{
+	// 		$sql = "INSERT INTO receipts (pic) VALUES ('".$file."')";
+	//
+	// 		if(mysqli_query($con,$sql) == false){
+	// 			echo mysqli_error($con)."<br>"; }
+	// 		mysqli_close($con);
+	// 	}
+	// }
 	//queries Inventory and Econ tables in database, then returns result in an array
 	//each element is an array with this format:
 	//	[quantity]=>quantity in inventory
