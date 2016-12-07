@@ -1,3 +1,4 @@
+<h1 style="color: white; text-align: center; font-size: 30pt; text-shadow: 2px 2px black;">Summary</h1>
 <?php
 $quantities;
 $scrapVolume;

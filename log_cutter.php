@@ -1,3 +1,4 @@
+<h1 style="color: white; text-align: center; font-size: 30pt; text-shadow: 2px 2px black;">Individual Logs</h1>
 <?php
 
   $boardCounter1 = [0,0,0];
@@ -62,6 +63,7 @@
 
 
         include 'parse_results_per_log.php';
+        ?><br><?php
     }
 
   function optimal_cut1($logHeight, $logWidth, $lumber, &$boardCounter1){

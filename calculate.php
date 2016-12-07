@@ -9,8 +9,14 @@
     .table{
       background-color: white;
       width: 75%;
-      margin-top: 2% !important;
+      margin-top: 1% !important;
       margin: 0 auto;
+      border-radius: 0px 0px 6px 6px;
+      box-shadow: 1px 1px 10px black;
+    }
+    html{
+      height: 100vh;
+      overflow-y: scroll;
     }
   </style>
 </head>
@@ -61,7 +67,7 @@
 		else{ updateEcon($econ[0], $econ[1], $econ[2], $econ[3]); }
 	  }
 
-	  
+
     }
     else
     {
