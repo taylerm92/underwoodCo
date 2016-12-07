@@ -52,7 +52,6 @@
       include 'condition_check.php'; //gives optimal values in order
       include 'log_cutter.php'; //cut logs
       include 'parse_results.php';
-	  include 'databaseAccess.php';
 
 	  //adds economic data to database
 	  $econAdd= preg_split('/[\n]/', $lines1, -1, PREG_SPLIT_NO_EMPTY);

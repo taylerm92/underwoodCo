@@ -67,10 +67,19 @@
 </div>
 
 <?php
+  include 'databaseAccess.php';
   if(isset($_POST['confirm']))
   {
-    include 'databaseAccess.php';
     include 'updatedatabase.php';
-    header('Location: purchase.php');
+//    header('Location: purchase.php');
+
+    ?>
+      <script>
+        window.location = "purchase.php";
+      </script>
+<?php
   }
+
 ?>
+
+

@@ -1,10 +1,7 @@
 <?php
-$quantities;
-$scrapVolume;
 if($round1TotalValue >= $round2TotalValue && $round1TotalValue >= $round3TotalValue && $round1TotalValue >= $round4TotalValue)
 {
-	$quantities= $boardCounter1;
-	$scrapVolume= $round1ScrapVolume;
+    //number_format((float)$anyValue, 2, '.', '');
     //lumber and scrap table start
     echo "<table class = table>";
     echo "<tr>";
@@ -27,38 +24,38 @@ if($round1TotalValue >= $round2TotalValue && $round1TotalValue >= $round3TotalVa
     //board 1 in the table
     echo "<tr>";
     echo "<td>";
-    echo format_num($boardCounter1[0]);
+    echo number_format((float)$boardCountPerLog1[0], 2, '.', '');
     echo "</td>";
     echo "<td>";
-    echo format_num($optimumValue[0]);
+    echo number_format((float)$optimumValue[0], 2, '.', '');
     echo "</td>";
     echo "<td>";
-    echo format_num($optimumValue[1]);
+    echo number_format((float)$optimumValue[1], 2, '.', '');
     echo "</td>";
     echo "<td>";
-    echo format_num($optimumValue[2]);
+    echo number_format((float)$optimumValue[2], 2, '.', '');
     echo "</td>";
     echo "<td>";
-    echo "$".format_num($board1CubicInch*$optimumValue[3]);
+    echo "$".number_format($board1CubicInch*$optimumValue[3], 2, '.', '');
     echo "</td>";
     echo "</tr>";
     //board 2 in the table
     if (!($optimumValue[0]==$optimumValue[4] && $optimumValue[1]==$optimumValue[5])) {
         echo "<tr>";
         echo "<td>";
-        echo format_num($boardCounter1[1]);
+        echo number_format((float)$boardCountPerLog1[1], 2, '.', '');
         echo "</td>";
         echo "<td>";
-        echo format_num($optimumValue[4]);
+        echo number_format((float)$optimumValue[4], 2, '.', '');
         echo "</td>";
         echo "<td>";
-        echo format_num($optimumValue[5]);
+        echo number_format((float)$optimumValue[5], 2, '.', '');
         echo "</td>";
         echo "<td>";
-        echo format_num($optimumValue[6]);
+        echo number_format((float)$optimumValue[6], 2, '.', '');
         echo "</td>";
         echo "<td>";
-        echo "$" . format_num($board2CubicInch * $optimumValue[7]);
+        echo "$" . number_format($board2CubicInch * $optimumValue[7], 2, '.', '');
         echo "</td>";
         echo "</tr>";
     }
@@ -66,26 +63,26 @@ if($round1TotalValue >= $round2TotalValue && $round1TotalValue >= $round3TotalVa
     if (!($optimumValue[4]==$optimumValue[8] && $optimumValue[5]==$optimumValue[9]) && !($optimumValue[0]==$optimumValue[8] && $optimumValue[1]==$optimumValue[9])){
         echo "<tr>";
         echo "<td>";
-        echo format_num($boardCounter1[2]);
+        echo number_format((float)$boardCountPerLog1[2], 2, '.', '');
         echo "</td>";
         echo "<td>";
-        echo format_num($optimumValue[8]);
+        echo number_format((float)$optimumValue[8], 2, '.', '');
         echo "</td>";
         echo "<td>";
-        echo format_num($optimumValue[9]);
+        echo number_format((float)$optimumValue[9], 2, '.', '');
         echo "</td>";
         echo "<td>";
-        echo format_num($optimumValue[10]);
+        echo number_format((float)$optimumValue[10], 2, '.', '');
         echo "</td>";
         echo "<td>";
-        echo "$" . format_num($board3CubicInch * $optimumValue[11]);
+        echo "$" . number_format($board3CubicInch * $optimumValue[11], 2, '.', '');
         echo "</td>";
         echo "</tr>";
     }
     //scrap case
     echo "<tr>";
     echo "<td colspan=\"5\">";
-    echo "Scrap: ".format_num($round1ScrapVolume)." cf";
+    echo "Scrap: ".number_format((float)$round1ScrapVolume, 2, '.', '')." cf";
     echo "</td>";
     echo "</tr>";
     echo "</table>";
@@ -105,10 +102,10 @@ if($round1TotalValue >= $round2TotalValue && $round1TotalValue >= $round3TotalVa
     echo "Lumber";
     echo "</td>";
     echo "<td>";
-    echo "$".format_num($round1TotalValue - $round1ScrapValue);
+    echo "$".number_format($round1TotalValue - $round1ScrapValue, 2, '.', '');
     echo "</td>";
     echo "<td>";
-    echo format_num((($round1TotalValue - $round1ScrapValue)/$round1TotalValue)*100)."%";
+    echo number_format((($round1TotalValue - $round1ScrapValue)/$round1TotalValue)*100, 2, '.', '')."%";
     echo "</td>";
     echo "</tr>";
     echo "<tr>";
@@ -116,10 +113,10 @@ if($round1TotalValue >= $round2TotalValue && $round1TotalValue >= $round3TotalVa
     echo "Scrap";
     echo "</td>";
     echo "<td>";
-    echo "$".format_num($round1ScrapValue);
+    echo "$".number_format((float)$round1ScrapValue, 2, '.', '');
     echo "</td>";
     echo "<td>";
-    echo format_num((($round1ScrapValue)/$round1TotalValue)*100)."%";
+    echo number_format((($round1ScrapValue)/$round1TotalValue)*100, 2, '.', '')."%";
     echo "</td>";
     echo "</tr>";
     echo "<tr>";
@@ -127,7 +124,7 @@ if($round1TotalValue >= $round2TotalValue && $round1TotalValue >= $round3TotalVa
     echo "Total";
     echo "</td>";
     echo "<td>";
-    echo "$".format_num($round1TotalValue);
+    echo "$".number_format((float)$round1TotalValue, 2, '.', '');
     echo "</td>";
     echo "<td>";
     echo "";
@@ -137,8 +134,6 @@ if($round1TotalValue >= $round2TotalValue && $round1TotalValue >= $round3TotalVa
 }
 elseif($round2TotalValue >= $round1TotalValue && $round2TotalValue >= $round3TotalValue && $round2TotalValue >= $round4TotalValue)
 {
-	$quantities= $boardCounter2;
-	$scrapVolume= $round2ScrapVolume;
     echo "<table class = table>";
     echo "<tr>";
     echo "<th>";
@@ -160,38 +155,38 @@ elseif($round2TotalValue >= $round1TotalValue && $round2TotalValue >= $round3Tot
     //board 1 in the table
     echo "<tr>";
     echo "<td>";
-    echo format_num($boardCounter2[0]);
+    echo number_format((float)$boardCountPerLog2[0], 2, '.', '');
     echo "</td>";
     echo "<td>";
-    echo format_num($optimumValue[0]);
+    echo number_format((float)$optimumValue[0], 2, '.', '');
     echo "</td>";
     echo "<td>";
-    echo format_num($optimumValue[1]);
+    echo number_format((float)$optimumValue[1], 2, '.', '');
     echo "</td>";
     echo "<td>";
-    echo format_num($optimumValue[2]);
+    echo number_format((float)$optimumValue[2], 2, '.', '');
     echo "</td>";
     echo "<td>";
-    echo "$".format_num($board1CubicInch*$optimumValue[3]);
+    echo "$".number_format($board1CubicInch*$optimumValue[3], 2, '.', '');
     echo "</td>";
     echo "</tr>";
     //board 2 in the table, do not display if is a duplicate of board 1
     if (!($optimumValue[0]==$optimumValue[4] && $optimumValue[1]==$optimumValue[5])) {
         echo "<tr>";
         echo "<td>";
-        echo format_num($boardCounter2[1]);
+        echo number_format((float)$boardCountPerLog2[1], 2, '.', '');
         echo "</td>";
         echo "<td>";
-        echo format_num($optimumValue[4]);
+        echo number_format((float)$optimumValue[4], 2, '.', '');
         echo "</td>";
         echo "<td>";
-        echo format_num($optimumValue[5]);
+        echo number_format((float)$optimumValue[5], 2, '.', '');
         echo "</td>";
         echo "<td>";
-        echo format_num($optimumValue[6]);
+        echo number_format((float)$optimumValue[6], 2, '.', '');
         echo "</td>";
         echo "<td>";
-        echo "$" . format_num($board2CubicInch * $optimumValue[7]);
+        echo "$" . number_format($board2CubicInch * $optimumValue[7], 2, '.', '');
         echo "</td>";
         echo "</tr>";
     }
@@ -199,26 +194,26 @@ elseif($round2TotalValue >= $round1TotalValue && $round2TotalValue >= $round3Tot
     if (!($optimumValue[4]==$optimumValue[8] && $optimumValue[5]==$optimumValue[9]) && !($optimumValue[0]==$optimumValue[8] && $optimumValue[1]==$optimumValue[9])) {
         echo "<tr>";
         echo "<td>";
-        echo format_num($boardCounter2[2]);
+        echo number_format((float)$boardCountPerLog2[2], 2, '.', '');
         echo "</td>";
         echo "<td>";
-        echo format_num($optimumValue[8]);
+        echo number_format((float)$optimumValue[8], 2, '.', '');
         echo "</td>";
         echo "<td>";
-        echo format_num($optimumValue[9]);
+        echo number_format((float)$optimumValue[9], 2, '.', '');
         echo "</td>";
         echo "<td>";
-        echo format_num($optimumValue[10]);
+        echo number_format((float)$optimumValue[10], 2, '.', '');
         echo "</td>";
         echo "<td>";
-        echo "$" . format_num($board3CubicInch * $optimumValue[11]);
+        echo "$" . number_format($board3CubicInch * $optimumValue[11], 2, '.', '');
         echo "</td>";
         echo "</tr>";
     }
     //scrap case
     echo "<tr>";
     echo "<td colspan=\"5\">";
-    echo "Scrap: ".format_num($round2ScrapVolume)." cf";
+    echo "Scrap: ".number_format((float)$round2ScrapVolume, 2, '.', '')." cf";
     echo "</td>";
     echo "</tr>";
     echo "</table>";
@@ -238,10 +233,10 @@ elseif($round2TotalValue >= $round1TotalValue && $round2TotalValue >= $round3Tot
     echo "Lumber";
     echo "</td>";
     echo "<td>";
-    echo "$".format_num($round2TotalValue - $round2ScrapValue);
+    echo "$".number_format((float)$round2TotalValue - $round2ScrapValue, 2, '.', '');
     echo "</td>";
     echo "<td>";
-    echo format_num((($round2TotalValue - $round2ScrapValue)/$round2TotalValue)*100)."%";
+    echo number_format((($round2TotalValue - $round2ScrapValue)/$round2TotalValue)*100, 2, '.', '')."%";
     echo "</td>";
     echo "</tr>";
     echo "<tr>";
@@ -249,10 +244,10 @@ elseif($round2TotalValue >= $round1TotalValue && $round2TotalValue >= $round3Tot
     echo "Scrap";
     echo "</td>";
     echo "<td>";
-    echo "$".format_num($round2ScrapValue);
+    echo "$".number_format((float)$round2ScrapValue, 2, '.', '');
     echo "</td>";
     echo "<td>";
-    echo format_num((($round2ScrapValue)/$round2TotalValue)*100)."%";
+    echo number_format((($round2ScrapValue)/$round2TotalValue)*100, 2, '.', '')."%";
     echo "</td>";
     echo "</tr>";
     echo "<tr>";
@@ -260,7 +255,7 @@ elseif($round2TotalValue >= $round1TotalValue && $round2TotalValue >= $round3Tot
     echo "Total";
     echo "</td>";
     echo "<td>";
-    echo "$".format_num($round2TotalValue);
+    echo "$".number_format((float)$round2TotalValue, 2, '.', '');
     echo "</td>";
     echo "<td>";
     echo "";
@@ -270,8 +265,6 @@ elseif($round2TotalValue >= $round1TotalValue && $round2TotalValue >= $round3Tot
 }
 elseif($round3TotalValue >= $round2TotalValue && $round3TotalValue >= $round1TotalValue && $round3TotalValue >= $round4TotalValue)
 {
-	$quantities= $boardCounter3;
-	$scrapVolume= $round3ScrapVolume;
     echo "<table class = table>";
     echo "<tr>";
     echo "<th>";
@@ -293,38 +286,38 @@ elseif($round3TotalValue >= $round2TotalValue && $round3TotalValue >= $round1Tot
     //board 1 in the table
     echo "<tr>";
     echo "<td>";
-    echo format_num($boardCounter3[0]);
+    echo number_format((float)$boardCountPerLog3[0], 2, '.', '');
     echo "</td>";
     echo "<td>";
-    echo format_num($optimumValue[0]);
+    echo number_format((float)$optimumValue[0], 2, '.', '');
     echo "</td>";
     echo "<td>";
-    echo format_num($optimumValue[1]);
+    echo number_format((float)$optimumValue[1], 2, '.', '');
     echo "</td>";
     echo "<td>";
-    echo format_num($optimumValue[2]);
+    echo number_format((float)$optimumValue[2], 2, '.', '');
     echo "</td>";
     echo "<td>";
-    echo "$".format_num($board1CubicInch*$optimumValue[3]);
+    echo "$".number_format($board1CubicInch*$optimumValue[3], 2, '.', '');
     echo "</td>";
     echo "</tr>";
     //board 2 in the table, do not display if is a duplicate of board 1
     if (!($optimumValue[0]==$optimumValue[4] && $optimumValue[1]==$optimumValue[5])) {
         echo "<tr>";
         echo "<td>";
-        echo format_num($boardCounter3[1]);
+        echo number_format((float)$boardCountPerLog3[1], 2, '.', '');
         echo "</td>";
         echo "<td>";
-        echo format_num($optimumValue[4]);
+        echo number_format((float)$optimumValue[4], 2, '.', '');
         echo "</td>";
         echo "<td>";
-        echo format_num($optimumValue[5]);
+        echo number_format((float)$optimumValue[5], 2, '.', '');
         echo "</td>";
         echo "<td>";
-        echo format_num($optimumValue[6]);
+        echo number_format((float)$optimumValue[6], 2, '.', '');
         echo "</td>";
         echo "<td>";
-        echo "$" . format_num($board2CubicInch * $optimumValue[7]);
+        echo "$" . number_format($board2CubicInch * $optimumValue[7], 2, '.', '');
         echo "</td>";
         echo "</tr>";
     }
@@ -332,26 +325,26 @@ elseif($round3TotalValue >= $round2TotalValue && $round3TotalValue >= $round1Tot
     if (!($optimumValue[4]==$optimumValue[8] && $optimumValue[5]==$optimumValue[9]) && !($optimumValue[0]==$optimumValue[8] && $optimumValue[1]==$optimumValue[9])) {
         echo "<tr>";
         echo "<td>";
-        echo format_num($boardCounter3[2]);
+        echo number_format((float)$boardCountPerLog3[2], 2, '.', '');
         echo "</td>";
         echo "<td>";
-        echo format_num($optimumValue[8]);
+        echo number_format((float)$optimumValue[8], 2, '.', '');
         echo "</td>";
         echo "<td>";
-        echo format_num($optimumValue[9]);
+        echo number_format((float)$optimumValue[9], 2, '.', '');
         echo "</td>";
         echo "<td>";
-        echo format_num($optimumValue[10]);
+        echo number_format((float)$optimumValue[10], 2, '.', '');
         echo "</td>";
         echo "<td>";
-        echo "$" . format_num($board3CubicInch * $optimumValue[11]);
+        echo "$" . number_format($board3CubicInch * $optimumValue[11], 2, '.', '');
         echo "</td>";
         echo "</tr>";
     }
     //scrap case
     echo "<tr>";
     echo "<td colspan=\"5\">";
-    echo "Scrap: ".format_num($round3ScrapVolume)." cf";
+    echo "Scrap: ".number_format((float)$round3ScrapVolume, 2, '.', '')." cf";
     echo "</td>";
     echo "</tr>";
     echo "</table>";
@@ -371,10 +364,10 @@ elseif($round3TotalValue >= $round2TotalValue && $round3TotalValue >= $round1Tot
     echo "Lumber";
     echo "</td>";
     echo "<td>";
-    echo "$".format_num($round3TotalValue - $round3ScrapValue);
+    echo "$".number_format((float)$round3TotalValue - $round3ScrapValue, 2, '.', '');
     echo "</td>";
     echo "<td>";
-    echo format_num((($round3TotalValue - $round3ScrapValue)/$round3TotalValue)*100)."%";
+    echo number_format((($round3TotalValue - $round3ScrapValue)/$round3TotalValue)*100, 2, '.', '')."%";
     echo "</td>";
     echo "</tr>";
     echo "<tr>";
@@ -382,10 +375,10 @@ elseif($round3TotalValue >= $round2TotalValue && $round3TotalValue >= $round1Tot
     echo "Scrap";
     echo "</td>";
     echo "<td>";
-    echo "$".format_num($round3ScrapValue);
+    echo "$".number_format((float)$round3ScrapValue, 2, '.', '');
     echo "</td>";
     echo "<td>";
-    echo format_num((($round3ScrapValue)/$round3TotalValue)*100)."%";
+    echo number_format((($round3ScrapValue)/$round3TotalValue)*100, 2, '.', '')."%";
     echo "</td>";
     echo "</tr>";
     echo "<tr>";
@@ -393,7 +386,7 @@ elseif($round3TotalValue >= $round2TotalValue && $round3TotalValue >= $round1Tot
     echo "Total";
     echo "</td>";
     echo "<td>";
-    echo "$".format_num($round3TotalValue);
+    echo "$".number_format((float)$round3TotalValue, 2, '.', '');
     echo "</td>";
     echo "<td>";
     echo "";
@@ -403,8 +396,6 @@ elseif($round3TotalValue >= $round2TotalValue && $round3TotalValue >= $round1Tot
 }
 else
 {
-	$quantities= $boardCounter4;
-	$scrapVolume= $round4ScrapVolume;
     echo "<table class = table>";
     echo "<tr>";
     echo "<th>";
@@ -426,38 +417,38 @@ else
     //board 1 in the table
     echo "<tr>";
     echo "<td>";
-    echo format_num($boardCounter4[0]);
+    echo number_format((float)$boardCountPerLog4[0], 2, '.', '');
     echo "</td>";
     echo "<td>";
-    echo format_num($optimumValue[0]);
+    echo number_format((float)$optimumValue[0], 2, '.', '');
     echo "</td>";
     echo "<td>";
-    echo format_num($optimumValue[1]);
+    echo number_format((float)$optimumValue[1], 2, '.', '');
     echo "</td>";
     echo "<td>";
-    echo format_num($optimumValue[2]);
+    echo number_format((float)$optimumValue[2], 2, '.', '');
     echo "</td>";
     echo "<td>";
-    echo "$".format_num($board1CubicInch*$optimumValue[3]);
+    echo "$".number_format($board1CubicInch*$optimumValue[3], 2, '.', '');
     echo "</td>";
     echo "</tr>";
     //board 2 in the table, do not display if is a duplicate of board 1
     if (!($optimumValue[0]==$optimumValue[4] && $optimumValue[1]==$optimumValue[5])) {
         echo "<tr>";
         echo "<td>";
-        echo format_num($boardCounter4[1]);
+        echo number_format((float)$boardCountPerLog4[1], 2, '.', '');
         echo "</td>";
         echo "<td>";
-        echo format_num($optimumValue[4]);
+        echo number_format((float)$optimumValue[4], 2, '.', '');
         echo "</td>";
         echo "<td>";
-        echo format_num($optimumValue[5]);
+        echo number_format((float)$optimumValue[5], 2, '.', '');
         echo "</td>";
         echo "<td>";
-        echo format_num($optimumValue[6]);
+        echo number_format((float)$optimumValue[6], 2, '.', '');
         echo "</td>";
         echo "<td>";
-        echo "$" . format_num($board2CubicInch * $optimumValue[7]);
+        echo "$" . number_format($board2CubicInch * $optimumValue[7], 2, '.', '');
         echo "</td>";
         echo "</tr>";
     }
@@ -465,26 +456,26 @@ else
     if (!($optimumValue[4]==$optimumValue[8] && $optimumValue[5]==$optimumValue[9]) && !($optimumValue[0]==$optimumValue[8] && $optimumValue[1]==$optimumValue[9])) {
         echo "<tr>";
         echo "<td>";
-        echo format_num($boardCounter4[2]);
+        echo number_format((float)$boardCountPerLog4[2], 2, '.', '');
         echo "</td>";
         echo "<td>";
-        echo format_num($optimumValue[8]);
+        echo number_format((float)$optimumValue[8], 2, '.', '');
         echo "</td>";
         echo "<td>";
-        echo format_num($optimumValue[9]);
+        echo number_format((float)$optimumValue[9], 2, '.', '');
         echo "</td>";
         echo "<td>";
-        echo format_num($optimumValue[10]);
+        echo number_format((float)$optimumValue[10], 2, '.', '');
         echo "</td>";
         echo "<td>";
-        echo "$" . format_num($board3CubicInch * $optimumValue[11]);
+        echo "$" . number_format($board3CubicInch * $optimumValue[11], 2, '.', '');
         echo "</td>";
         echo "</tr>";
     }
     //scrap case
     echo "<tr>";
     echo "<td colspan=\"5\">";
-    echo "Scrap: ".format_num($round4ScrapVolume)." cf";
+    echo "Scrap: ".number_format((float)$round4ScrapVolume, 2, '.', '')." cf";
     echo "</td>";
     echo "</tr>";
     echo "</table>";
@@ -504,10 +495,10 @@ else
     echo "Lumber";
     echo "</td>";
     echo "<td>";
-    echo "$".format_num(($round4TotalValue - $round4ScrapValue));
+    echo "$".number_format(($round4TotalValue - $round4ScrapValue), 2, '.', '');
     echo "</td>";
     echo "<td>";
-    echo format_num(((($round4TotalValue - $round4ScrapValue)/$round4TotalValue)*100))."%";
+    echo number_format(((($round4TotalValue - $round4ScrapValue)/$round4TotalValue)*100), 2, '.', '')."%";
     echo "</td>";
     echo "</tr>";
     echo "<tr>";
@@ -515,10 +506,10 @@ else
     echo "Scrap";
     echo "</td>";
     echo "<td>";
-    echo "$".format_num($round4ScrapValue);
+    echo "$".number_format((float)$round4ScrapValue, 2, '.', '');
     echo "</td>";
     echo "<td>";
-    echo format_num(((($round4ScrapValue)/$round4TotalValue)*100))."%";
+    echo number_format(((($round4ScrapValue)/$round4TotalValue)*100), 2, '.', '')."%";
     echo "</td>";
     echo "</tr>";
     echo "<tr>";
@@ -526,7 +517,7 @@ else
     echo "Total";
     echo "</td>";
     echo "<td>";
-    echo "$".format_num($round4TotalValue);
+    echo "$".number_format((float)$round4TotalValue, 2, '.', '');
     echo "</td>";
     echo "<td>";
     echo "";
@@ -535,9 +526,4 @@ else
     echo "</table>";
 }
 
-//formats all tables to 2 decimal places
-function format_num($anyValue){
-    $anyValueTwoDecimal = number_format((float)$anyValue, 2, '.', '');
-    return $anyValueTwoDecimal;
-}
 ?>
