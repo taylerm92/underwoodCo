@@ -93,6 +93,8 @@ if (isset( $_POST['hey']))
             });
           </script>
         <?php
+        move_uploaded_file($file_tmp, "/xampp/htdocs/underwoodCo/files/".$file_name);
+        header('Location: index.php');
       }
       else
       {

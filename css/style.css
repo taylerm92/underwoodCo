@@ -100,8 +100,8 @@ html, body {
     animation: spin 5s linear infinite;
 		z-index: 99 !important;
 		position: absolute;
-		top: 35%;
-		left: 42.3%;
+		top: 70px;
+		left: 660px;
 }
 
 @keyframes spin {

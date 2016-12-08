@@ -14,10 +14,7 @@
       border-radius: 0px 0px 6px 6px;
       box-shadow: 1px 1px 10px black;
     }
-    html{
-      height: 100vh;
-      overflow-y: scroll;
-    }
+
   </style>
 </head>
 <body>
